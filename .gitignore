@@ -1,0 +1,10 @@
+/RPU-master/
+/ReonV-master/
+
+/*/*.cache/
+/*/*.hw/
+/*/*.runs/
+/*/*.sim/
+/*/*.ip_user_files/
+
+/*/*.xpr
