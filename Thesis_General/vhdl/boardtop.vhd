@@ -37,8 +37,8 @@ use work.constants.all;
 
 entity boardtop is
     Port ( 
-        LED : out std_logic_vector(1 downto 0);
-        clk100mhz : in STD_LOGIC
+            LED : out std_logic_vector(1 downto 0);
+            clk100mhz : in STD_LOGIC
         );
 end boardtop;
 
@@ -234,5 +234,54 @@ begin
     );
     
     LED(1 downto 0) <= debug(1 downto 0);
+    
+    
+    -- Huge process which handles memory request arbitration at the Soc/Core clock 
+    MEM_proc: process(cEng_core)
+    begin
+        if rising_edge(cEng_core) then
+            if MEM_readyState = SOC_CtlState_Ready then
+                if MEM_O_cmd = '1' then
+                    MEM_I_ready <= '0';
+                    MEM_I_dataReady  <= '0';
+                    
+                    if MEM_O_we = '1' then
+                        -- DDR3 request, or immediate command?
+                        MEM_readyState <= SOC_CtlState_IMM_WriteCmdComplete;
+                    else
+                        -- DDR3 request, or immediate command?
+                        MEM_readyState <= SOC_CtlState_IMM_ReadCmdComplete; 
+                    end if;
+                    
+                end if;
+            elsif MEM_readyState >= 1 then
+                 
+                
+                -- Immediate commands do not cross clock domains and complete immediately
+                if MEM_readyState = SOC_CtlState_IMM_ReadCmdComplete then
+                    MEM_I_ready <= '1';
+                    MEM_I_dataReady <= '1'; 
+                    MEM_readyState <= SOC_CtlState_Ready;  
+                    
+                elsif MEM_readyState = SOC_CtlState_IMM_WriteCmdComplete then
+                    MEM_I_ready <= '1';
+                    MEM_I_dataReady  <= '0'; 
+                    MEM_readyState <= SOC_CtlState_Ready;
+          
+                end if;
+            end if;
+        end if;
+    end process;
+   
+    
+    -- Stimulus process
+    stim_proc: process
+    begin        
+        -- hold reset state for 100 ns.
+        wait for 100 ns;    
+  
+        I_reset <= '0';
+        
+    end process;
 
 end Behavioral;

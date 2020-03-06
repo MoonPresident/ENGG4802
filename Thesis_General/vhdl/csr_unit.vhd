@@ -137,7 +137,7 @@ begin
         end if;
     end process;
     
-    instret: process (I_clk)
+    instret: process (I_clk, I_instRetTick)
     begin
         if rising_edge(I_clk) and I_instRetTick='1' then
             csr_instret <= std_logic_vector(unsigned(csr_instret) + 1);

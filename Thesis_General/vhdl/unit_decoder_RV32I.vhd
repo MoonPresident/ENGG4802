@@ -51,7 +51,7 @@ begin
 	O_selRS1 <= I_dataInst(R1_START downto R1_END);
 	O_selRS2 <= I_dataInst(R2_START downto R2_END);
 	
-	process (I_clk, I_en)
+	process (I_clk, I_en, I_int_ack)
 	begin
 	    if rising_edge(I_clk) and I_int_ack = '1' then
 	       O_int <= '0';
