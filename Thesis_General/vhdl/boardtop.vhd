@@ -180,7 +180,7 @@ begin
 
     scaler0: prescaler 
     GENERIC MAP (
-        width => 11
+        width => 26
     )
     PORT MAP(
         clk_in => clk100mhz,
