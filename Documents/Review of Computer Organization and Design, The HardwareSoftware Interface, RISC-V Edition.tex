@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\title{Review of Computer Organization and Design, The Hardware/Software Interface, RISC-V Edition}
+\author{MoonPresident}
+
+\usepackage[margin=0.8in]{geometry}
+
+\usepackage{siunitx}
+\usepackage{mathtools}
+
+%https://en.wikibooks.org/wiki/LaTeX/List_Structures
+
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\section{Computer Abstraction and Technology}
+	This section outlines the main idea's underpinning digital design in recent and contemporary history, circa 2020.
+		\subsection{Introduction}
+			This obligatory section reminds the reader the extent to which computers have revolutionised the world, in case the audience just emerged from a secluded cave on the Isle of Wight after 50 years of ritual meditation. 
+			
+			The highlight of this section is an indeterminable claim that if motor cars had improved at the same rate as computers we would be able to travel from New York to London in 1 second for a penny.
+			
+			Beyond that the section highlights the myriad of triumphs in the computing world, noting auto-mobile computing, cell phones, the sequencing of the human genome, the World Wide Web and search engines.
+			
+			\subsubsection{Traditional Classes of Computing Applications and Their Characteristics}
+			\begin{itemize}
+				\item \textbf{Servers} Servers have a wide range of cost and capability. Massive I/O, can handle a large complex program or several.
+				\item \textbf{Personal Computers} - 35 year old, the PC delivers low cost performance for a single user.
+				\item \textbf{Embedded Computers} The most widespread devices in use, and the current cutting edge of technology.
+			\end{itemize}
+			\subsubsection{What You Can Learn From This Book}
+			\begin{itemize}
+				\item \textbf{Translations to Hardware} - How higher level languages like C and Java are translated down to the machine level.
+				\item \textbf{Hardware-Software Interface} - The layer between the software and hardware and how they interact.
+				\item \textbf{Program Performance} - What determines performance at the programming level and how to optimize for it.
+				\item \textbf{Hardware Performance} - What determines performance at a hardware level and how it can be optimized.
+				\item \textbf{Power Performance} - How hardware and software be keyed for good or bad power consumption.
+				\item \textbf{Parallel Consequences} - The consequences of switching from sequential to parallel processing.
+				\item \textbf{Great Ideas in Modern Computing} - From the 1950's, its all been coming together. 
+			\end{itemize}
+			
+
+		\subsection{Eight Great Ideas in Computer Architecture}
+			\begin{description}
+				\item \textbf{Design for Moore's Law} - As is the theme of my thesis, Moore's Law no longer really holds. The point of this idea is that when designing you should pick your methodology so that it holds up when the product is completed. Designing for now ignores the time lag that results from design and build time.
+				\item \textbf{Use Abstraction to Simplify Design} - Abstraction is the key tool in any electrical or software engineers toolbox. By reducing a complex task to a black box with inputs and outputs, previous work can be leveraged to produce vast systems with speed an efficiency of design.
+				\item \textbf{Make the Common Case Fast} - Optimising for edge cases will rarely improve efficiency. Optimizing for the common case is usually easier than the complex case anyway.
+				\item \textbf{Performance via Parallelism} - By computing things in parallel, mutually exclusive tasks receive an easy speed boost, and dependant tasks can also see some improvements.
+				\item \textbf{Performance via Pipelining} - Described as similar to a bucket brigade. I will expand on this late.
+				\item \textbf{Performance via Prediction} - Guess which side of a if statement is next and begin running it in parallel.
+				\item \textbf{Hierarchy of Memories} - By having some memory be close and some memory be far, cost of memory can be maintained at a sensible level while 
+				\item \textbf{Dependability via Redundancy} - Including a second uC incase the first one breaks. Giving out 2 circuit boards incase one fails. Design for the probability of specific failures.
+			\end{description}
+		\subsection{Below Your Program}
+			Computers have hierarchies of abstraction layers. Main layer between application software and the hardware is the OS. This handles basic I/O, memory management and some degree of security.
+			
+			This section outlines the basic work done by a compiler in changing high level code into assembly, which is turned into opcode by an assembler.
+		\subsection{Under the Covers}
+			This section looks at the hardware. It describes the 5 classic components of a computer: input, output, memory, datapath and control. Datapath and control are often combined as the processor. Page 17 (43) has an excellent diagram of this.
+			
+			Inside any system, there is a PCB with a number of IC's. The most important of these is th processor, which contains the cache memory, which is SRAM. There may be an IC for DRAM or plug in sticks that give access to a large amount of DRAM.
+			
+			The next section is about comms, but thats out of the scope of my thesis.
+		\subsection{Technologies for Building Processors and Memory}
+			Silicon is the power behind all of the things we can do. Depending on how you process it chemically, it can be a conductor, insulator, or semiconductor.
+		\subsection{Performance}
+		
+		\subsection{The Power Wall}
+		
+		\subsection{The Sea Change: The Switch from Uniprocessors to Multiprocessors}
+		
+		\subsection{Real Stuff: Benchmarking the Intel Core I7}
+		
+		\subsection{Fallacies and Pitfalls}
+		
+		\subsection{Concluding Remarks}
+		
+		\subsection{Historical Perspective and Further Reading}
+		
+		\subsection{Exercises}
+\end{document}
