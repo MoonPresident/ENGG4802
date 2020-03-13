@@ -37,9 +37,20 @@ use work.constants.all;
 
 entity boardtop is
     Port ( 
-            LED : out std_logic_vector(1 downto 0);
-            clk100mhz : in STD_LOGIC
-        );
+        AN : out STD_LOGIC_VECTOR (7 downto 0);
+        CA : out STD_Logic;
+        CB : out STD_Logic;
+        CC : out STD_Logic;
+        CD : out STD_Logic;
+        CE : out STD_Logic;
+        CF : out STD_Logic;
+        CG : out STD_Logic;
+        DP : out STD_Logic;
+        LED : out std_logic_vector(1 downto 0);
+        clk100mhz : in STD_LOGIC;
+        
+        BTNC: in std_logic
+    );
 end boardtop;
 
 architecture Behavioral of boardtop is
@@ -81,6 +92,23 @@ architecture Behavioral of boardtop is
             clk_out: out std_logic
         );
     end component;
+    
+    COMPONENT ssegDriver is
+        port (
+            clk : in std_logic;
+            rst : in std_logic;
+            cathode_p : out std_logic_vector(7 downto 0);
+            digit1_p : in std_logic_vector(3 downto 0);
+            anode_p : out std_logic_vector(7 downto 0);
+            digit2_p : in std_logic_vector(3 downto 0);
+            digit3_p : in std_logic_vector(3 downto 0);
+            digit4_p : in std_logic_vector(3 downto 0);
+            digit5_p : in std_logic_vector(3 downto 0);
+            digit6_p : in std_logic_vector(3 downto 0);
+            digit7_p : in std_logic_vector(3 downto 0);
+            digit8_p : in std_logic_vector(3 downto 0)
+        );
+    END COMPONENT;
     
     
     signal cEng_core : std_logic := '0';
@@ -150,46 +178,49 @@ architecture Behavioral of boardtop is
     
     type rom_type is array (0 to 31) of std_logic_vector(31 downto 0);
            
+--    constant ROM: rom_type:=(   
+--    X"00008137", --   lui      sp,0x8
+--    X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
+--    X"c00015f3", --   csrrw    a1,cycle,zero
+--    X"c8001673", --   csrrw    a2,cycleh,zero
+--    X"f13016f3", --   csrrw    a3,mimpid,zero
+--    X"30101773", --   csrrw    a4,misa,zero
+--    X"c02017f3", --   csrrw    a5,instret,zer
+--    X"c8201873", --   csrrw    a6,instreth,ze
+--    X"c00018f3", --   csrrw    a7,cycle,zero
+--    X"c8001973", --   csrrw    s2,cycleh,zero
+--    X"400019f3", --   csrrw    s3,0x400,zero
+--    X"40069a73", --   csrrw    s4,0x400,a3
+--    X"40001af3", --   csrrw    s5,0x400,zero
+--    X"40011b73", --   csrrw    s6,0x400,sp
+--    X"40001bf3", --   csrrw    s7,0x400,zero
+--    X"40073c73", --   csrrc    s8,0x400,a4
+--    X"40001cf3", --   csrrw    s9,0x400,zero
+--    X"40111d73", --   csrrw    s10,0x401,sp
+--    X"40101df3", --   csrrw    s11,0x401,zero
+--    X"40172e73", --   csrrs    t3,0x401,a4
+--    X"40101ef3", --   csrrw    t4,0x401,zero
+--    X"0000006f", --             infloop
+--    others => X"00000000");
+
     constant ROM: rom_type:=(   
-    X"00008137", --   lui      sp,0x8
-    X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
-    X"c00015f3", --   csrrw    a1,cycle,zero
-    X"c8001673", --   csrrw    a2,cycleh,zero
-    X"f13016f3", --   csrrw    a3,mimpid,zero
-    X"30101773", --   csrrw    a4,misa,zero
-    X"c02017f3", --   csrrw    a5,instret,zer
-    X"c8201873", --   csrrw    a6,instreth,ze
-    X"c00018f3", --   csrrw    a7,cycle,zero
-    X"c8001973", --   csrrw    s2,cycleh,zero
-    X"400019f3", --   csrrw    s3,0x400,zero
-    X"40069a73", --   csrrw    s4,0x400,a3
-    X"40001af3", --   csrrw    s5,0x400,zero
-    X"40011b73", --   csrrw    s6,0x400,sp
-    X"40001bf3", --   csrrw    s7,0x400,zero
-    X"40073c73", --   csrrc    s8,0x400,a4
-    X"40001cf3", --   csrrw    s9,0x400,zero
-    X"40111d73", --   csrrw    s10,0x401,sp
-    X"40101df3", --   csrrw    s11,0x401,zero
-    X"40172e73", --   csrrs    t3,0x401,a4
-    X"40101ef3", --   csrrw    t4,0x401,zero
+    X"00001011", --   addi     sp, sp, -32
+    X"0000ec22", --   sd	   s0, 24(sp)
+    X"00001000", --   addi     s0, sp, 32
+    X"fe042623", --   sw	   zero, -20(s0)
+    
+    X"fec42783", --   lw	   a5,-20(s0)
+    X"00002785", --   addiw    a5, a5, 1
+    X"fef42623", --   sw	   a5, -20(s0)
+
     X"0000006f", --             infloop
     others => X"00000000");
    
+   signal ssegAnode, ssegCathode: std_logic_vector(7 downto 0) := x"00";
+   
+   signal ssegClk: std_logic := '0';
 
 begin
-
-    scaler0: prescaler 
-    GENERIC MAP (
-        width => 26
-    )
-    PORT MAP(
-        clk_in => clk100mhz,
-        clk_out => cEng_core
-    );
-    
-
-   
-   
  	-- The O_we signal can sustain too long. Clamp it to only when O_cmd is active.
     MEM_WE <= MEM_O_cmd and MEM_O_we;
     
@@ -233,8 +264,6 @@ begin
         O_DBG=>debug
     );
     
-    LED(1 downto 0) <= debug(1 downto 0);
-    
     
     -- Huge process which handles memory request arbitration at the Soc/Core clock 
     MEM_proc: process(cEng_core)
@@ -272,16 +301,55 @@ begin
             end if;
         end if;
     end process;
-   
     
-    -- Stimulus process
-    stim_proc: process
-    begin        
-        -- hold reset state for 100 ns.
-        wait for 100 ns;    
-  
-        I_reset <= '0';
-        
-    end process;
+    AN <= ssegAnode;
+    
+    CA <= ssegCathode(0);
+    CB <= ssegCathode(1);
+    CC <= ssegCathode(2);
+    CD <= ssegCathode(3);
+    CE <= ssegCathode(4);
+    CF <= ssegCathode(5);
+    CG <= ssegCathode(6);
+    DP <= ssegCathode(7);
+
+    I_reset <= BTNC;
+
+
+    scaler0: prescaler 
+    GENERIC MAP (
+        width => 25
+    )
+    PORT MAP(
+        clk_in => clk100mhz,
+        clk_out => cEng_core
+    );
+    
+    
+    p2: prescaler
+    generic map(
+        width => 15
+    )
+    port map(
+        clk_in => clk100mhz,
+        clk_out => ssegClk
+    );
+    
+    sseg: ssegDriver
+    port map(
+        clk => ssegClk,
+        rst => I_reset,
+        cathode_p => ssegCathode,
+        anode_p => ssegAnode,
+        digit1_p => debug(3 downto 0),
+        digit2_p => debug(7 downto 4),
+        digit3_p => debug(11 downto 8),
+        digit4_p => debug(15 downto 12),
+        digit5_p => debug(19 downto 16),
+        digit6_p => debug(23 downto 20),
+        digit7_p => debug(27 downto 24),
+        digit8_p => debug(31 downto 28)
+    );
+
 
 end Behavioral;

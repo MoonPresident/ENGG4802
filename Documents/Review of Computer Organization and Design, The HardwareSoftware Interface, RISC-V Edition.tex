@@ -62,22 +62,105 @@
 			
 			Inside any system, there is a PCB with a number of IC's. The most important of these is th processor, which contains the cache memory, which is SRAM. There may be an IC for DRAM or plug in sticks that give access to a large amount of DRAM.
 			
-			The next section is about comms, but thats out of the scope of my thesis.
+			The next section is about comms, but that's out of the scope of my thesis.
 		\subsection{Technologies for Building Processors and Memory}
-			Silicon is the power behind all of the things we can do. Depending on how you process it chemically, it can be a conductor, insulator, or semiconductor.
+			Silicon is the power behind all of the things we can do. Depending on how you process it chemically, it can be a conductor, insulator, or semiconductor. 
 		\subsection{Performance}
-		
+			Measuring performance is made difficult by the need to choose and justify a metric. In a processor, response time, or execution time is a possible metric. Throughput or bandwidth also has potential.Different design choices affect these things differently. Getting a faster databus might improve the execution or bandwidth, but only if the databus is the limiting factor. Installing a second processor will improve throughput but won't improve the speed of individual jobs. There are many considerations.
+			
+			Performance in computers is determined as $\text{Performance}_{X} = \frac{1}{\text{Execution time}_{X}}$
+			
+			When comparing designs, asserting that "X is n times faster than Y" equates to $\frac{\text{Performance}_{X}}{\text{Performance}_{Y}} = n$
+			
+			\subsubsection{Measuring Performance
+				When measuring a CPU's performance, it is important to distinguish CPU execution time. This is distinct from I/O time or time lost due to multithreading or time lost in a shared system. It is also helpful to define User CPU time and System CPU time, the difference being whether the code is being executed in kernel mode or not.
+				
+				CPU time is a function of the speed with which a processor operates contrasted against the number of clock cycles it takes for operations.
+				
+				A good measure for my thesis would be clock cycles vs maximum viable clock speed. An alternative one commonly used is to take the average clock cycles per instruction and multiply that against the number of instructions used.
+				
+				Another interesting measurement is IPC, instructions per clock cycle. Some processors execute multiple instructions per clock cycle. IPC is an inversion of CPI.
+				
+				Intel 7 chips do computational sprinting.
 		\subsection{The Power Wall}
+			This section outlines part of the dark silicon problem: increasing frequencies leading to increasing power usage. It does not include the issue of post-Dennardian scaling.
+			
+			Basically, power is the new arena in which brave EE's knights and the wizards of the ECE tower must fight in.
 		
 		\subsection{The Sea Change: The Switch from Uniprocessors to Multiprocessors}
-		
+			Parallelism is apparently the third rail of programming, and the authors find it "startling" that the industry at large is betting on programmers engaging in continued learning enough to learn parallel programming. I would like to be optimistic but I see their point.
 		\subsection{Real Stuff: Benchmarking the Intel Core I7}
-		
+			SPEC CPU Benchmark. Worth a look.
 		\subsection{Fallacies and Pitfalls}
-		
+			This chapter just clears misinformation in the field.
+			\begin{itemize}
+				\item Designing for performance is not mutually exclusive to designing for energy efficiency.
+				\item Using subsets of performance to measure improvements can be  problematic. MIPS is an example of this.
+			\end{itemize}
 		\subsection{Concluding Remarks}
-		
+			The main takeaways from this should be about the pivot in computing to focus on energy efficiency/power and parallelism. Key to both of these is memory.
 		\subsection{Historical Perspective and Further Reading}
+			\textif{Page 54.e13 (90) contains a wealth of resources that can be used for the writing of the final thesis.}
 		
-		\subsection{Exercises}
+			This section actually comes after the Exercises, and contains an interesting history of the researches and companies that developed the early computers.
+			
+			All of these computers were planned and marked as "1000x betters than the previous best computer" or "100x better than any computer in existence." The elephant in the room however was that none of these improvements could draw from a clear measure. The earliest measure was the speed with which a computer could do a single calculation, such as addition.
+			
+			A later methodology gave the \textif{average instruction execution time} by measuring the time individual instructions to and multiplying that by the instructions weight in the program. This measurement was a hop, skip and a jump into MIPS, which grew in popularity thereafter. 
+			
+			The next great step in benchmarking was the introduction of synthetic programs (not real world applicable). The first program was the Whetstone benchmark, which was measure in Whetstones per second, a value that equated to the number of Whetstone benchmark iterations completed in a minute. Soon followed the Dhrystone, which is still used in some embedded computing circles.
+			
+			Around the same time as the Whetstone, kernel benchmarks became popular. Kernel benchmarks involved taking a time intensive section from a real world program and using it for benchmarking. This was typically reserved for high end computers.
+			
+			Eventually this all lead to the System Performance Evaluation Cooperative (SPEC) group in 1988, comprised of representatives from many computing companies. They determined a set of real world programs and inputs that could be run to benchmark computers. It is likely that they will not be sufficient for modern computers in the future.
+			
+			At the time this book, 8-bit micro's were the best-selling processors in the world. To evaluate embedded performance, the Embedded Microprocessor Benchmark Consortium (EEMBC) started in 1997, consisting of a collection of kernels organised into suites that can be used for different sections of the embedded industry.
+			
+		\section{Instructions: Language of the Computer}
+			\subsection{Introduction}
+				This chapter of the book outlines the "secret" of computing: the stored-program concept. Herein we explore instructions and instruction sets. Ask not what you can do for instruction sets, but what instruction sets can do for you.
+			\subsection{Operations of the Computer Hardware}
+				RISC-V arithmetic instruction have a rigid notation, performing only 1 operation and always having 3 variables.
+				
+				Page 64 (103) has full list of all RISC-V commands.
+			\subsection{Operands of the Computer Hardware}
+			
+			\subsection{Signed and Unsigned Numbers}
+			
+			\subsection{Representing Instructions in the Computer}
+			
+			\subsection{Logical Operations}
+			
+			\subsection{Instructions for Making Decisions}
+			
+			\subsection{Supporting Procedures in Computer Hardware}
+			
+			\subsection{Communicating with People}
+			
+			\subsection{RISC-V Addressing for Wide Immediates and Addresses}
+			
+			\subsection{Parallelism and Instructions: Synchronization}
+			
+			\subsection{Translating and Starting a Program}
+			
+			\subsection{A C Sort Example to Put it All Together}
+			
+			\subsection{Arrays versus Pointers}
+			
+			\subsection{Advanced Material: Compiling C and Interpreting Java}
+			
+			\subsection{Real Stuff: MIPS Instructions}
+			
+			\subsection{Real Stuff: x86 Instructions}
+			
+			\subsection{Real Stuff: The Rest of the RISC-V Instruction Set}
+			
+			\subsection{Fallacies and Pitfalls}
+			
+			\subsection{Concluding Remarks}
+			
+			\subsection{Historical     Perspective and Further Reading}
+			
+			
 \end{document}
+
