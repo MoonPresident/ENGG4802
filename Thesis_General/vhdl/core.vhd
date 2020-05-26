@@ -496,7 +496,8 @@ begin
 	
 	dbg_data_line <= registerWriteData when state(5) = '1' else  memctl_address;
 	-- The debug output just allows some internal state to be visible outside the core black box
-    O_DBG <= "0000" & "00" & memctl_dataReady  & MEM_I_dataReady & dataWriteReg & "0" & lint_reset  & lint_int & "00" & decoder_int & csru_int & "000" & aluop(6 downto 2) & "0" & state & dbg_data_line;-- & registerWriteData(15 downto 0);
+--    O_DBG <= "0000" & "00" & memctl_dataReady  & MEM_I_dataReady & dataWriteReg & "0" & lint_reset  & lint_int & "00" & decoder_int & csru_int & "000" & aluop(6 downto 2) & "0" & state & dbg_data_line;-- & registerWriteData(15 downto 0);
+    O_DBG <= x"00000000" & dataResult(31 downto 0);
     -- byte 1 - memctrl&dataready
     -- byte 2 - dataWriteReg, lint_reset, lint_int, decoder and csru_int
     -- byte 3 - aluop

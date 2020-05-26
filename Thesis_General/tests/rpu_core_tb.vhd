@@ -158,7 +158,7 @@ architecture Behavioral of rpu_core_tb is
      X"40101df3", --   csrrw    s11,0x401,zero
      X"40172e73", --   csrrs    t3,0x401,a4
      X"40101ef3", --   csrrw    t4,0x401,zero
-     X"0000006f", --             infloop
+     X"fadff06f", --             infloop
      others => X"00000000");
        
     BEGIN
