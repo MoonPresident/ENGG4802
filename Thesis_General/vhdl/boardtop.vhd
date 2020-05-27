@@ -89,6 +89,18 @@ architecture Behavioral of boardtop is
         ); 
     end component;
     
+    component button_debouncer
+    Generic (
+        g_button_quant : integer := 1;
+        g_debounce_scalar : integer := 7
+    );
+    Port (  I_clk : in std_logic;
+            I_buttons : in STD_LOGIC_VECTOR (g_button_quant - 1 downto 0);
+            O_buttons_pulse : out STD_LOGIC_VECTOR (g_button_quant - 1 downto 0);
+            O_buttons_held : out STD_LOGIC_VECTOR (g_button_quant - 1 downto 0)
+    );
+    end component;
+    
     component prescaler
         Generic (
             width : integer
@@ -251,7 +263,7 @@ architecture Behavioral of boardtop is
     X"40101df3", --   csrrw    s11,0x401,zero
     X"40172e73", --   csrrs    t3,0x401,a4
     X"40101ef3", --   csrrw    t4,0x401,zero
-    X"ff9fc06f", --             infloop
+    X"fadff06f", --             infloop
     others => X"00000000");
 
 --    constant ROM: rom_type:=(   
@@ -271,18 +283,29 @@ architecture Behavioral of boardtop is
    
    signal ssegClk: std_logic := '0';
    signal leds: std_logic_vector(2 downto 0);
+   signal w_btnu: std_logic;
 
 begin
 
     r_CLOCK <= clk100mhz;
     LED(2) <= leds(2);
     
+    debouncer: button_debouncer
+        generic map(
+            g_button_quant      => 1,
+            g_debounce_scalar   => 20 
+        )
+        port map(
+            I_clk => r_clock,
+            I_buttons(0) => btnu,
+            o_buttons_pulse(0) => w_btnu
+        );
 --    w_RX_BYTE <= UART_TXD_IN;
 --    UART_RXD_OUT <= w_TX_SERIAL;
     
     r_RX_SERIAL <= UART_TXD_IN;
     UART_RXD_OUT <= w_TX_SERIAL;
-    r_TX_DV <= BTNU;
+    r_TX_DV <= w_btnu;
     -- Instantiate UART transmitter
     UART_TX_INST : uart_tx
         generic map (
