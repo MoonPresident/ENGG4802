@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 7]> <html class="lte-ie7 lt-ie9 lt-ie8" lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 8]> <html class="lte-ie8 lt-ie9" lang="en" dir="ltr"> <![endif]-->
+<!--[if lte IE 9]> <html class="lte-ie9" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 9]><!--> <html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr"> <!--<![endif]-->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="icon" type="image/icon" href="https://auth.uq.edu.au/idp/module.php/uqtheme/images/favicon.ico" />
+	<title>Enter your username and password - The University of Queensland, Australia</title>
+	<link type="text/css" rel="stylesheet" href="https://auth.uq.edu.au/idp/module.php/uqtheme/fonts/Roboto/roboto.css" media="all" />
+	<!-- THEME INCLUDES -->
+	<link rel="stylesheet" href="https://auth.uq.edu.au/idp/module.php/uqtheme/css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="https://auth.uq.edu.au/idp/module.php/uqtheme/css/uq.css" type="text/css" />
+	<script type="text/javascript" src="https://auth.uq.edu.au/idp/module.php/uqtheme/js/uq.modernizr.js"></script>
+	<script type="text/javascript" src="https://auth.uq.edu.au/idp/module.php/uqtheme/lib/jquery/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="https://auth.uq.edu.au/idp/module.php/uqtheme/lib/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="https://auth.uq.edu.au/idp/module.php/uqtheme/lib/jquery/equalize.min.js"></script>
+</head>
+<body>
+<div class="skip-link">
+   <a href="#main-content" class="show-for-sr">Skip to main content</a>
+</div>
+<div class="site-header">
+  <div class="site-header__content">
+    <div class="columns large-12">
+      <a href="http://www.uq.edu.au/" title="UQ Homepage" class="uq-logo">The University of Queensland</a>
+      <h2 class="site-title"><a class="site-title__link" rel="home" title="UQ Authenticate" href="https://auth.uq.edu.au/idp"><span class="hide-for-small-only">UQ Authenticate</span><span class="show-for-small-only">UQ Authenticate</span></a></h2>
+    </div>
+  </div>
+</div>
+<div class="page">
+<!-- END HEADER -->
+<h2>Missing cookie</h2><p>You appear to have disabled cookies in your browser. Please check the settings in your browser, and try again.</p><ul><li><a href="https://auth.uq.edu.au/idp/saml2/idp/SSOService.php?spentityid=https%3A%2F%2Fauth.library.uq.edu.au%2Fsso%2Fmodule.php%2Fsaml%2Fsp%2Fmetadata.php%2Fuqlsso&amp;RelayState=https%3A%2F%2Fauth.library.uq.edu.au%2Flogin%3Freturn%3DaHR0cHM6Ly9hdXRoLmxpYnJhcnkudXEuZWR1LmF1L2xvZ2luP3R5cGU9ZXpwcm94eSZ1cmw9aHR0cHMlM2ElMmYlMmZsaW5rLnNwcmluZ2VyLmNvbSUyZmNvbnRlbnQlMmZwZGYlMmYxMC4xMDA3JTI1MkY5NzgtOTQtMDExLTEwODItMi5wZGY%3D&amp;cookieTime=1590239091" id="retry">Retry</a></li></ul>
+    </div>
+</div>
+
+</body>
+</html>

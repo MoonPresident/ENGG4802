@@ -1,0 +1,166 @@
+\documentclass{article}
+
+\title{Review of Computer Organization and Design, The Hardware/Software Interface, RISC-V Edition}
+\author{MoonPresident}
+
+\usepackage[margin=0.8in]{geometry}
+
+\usepackage{siunitx}
+\usepackage{mathtools}
+
+%https://en.wikibooks.org/wiki/LaTeX/List_Structures
+
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\section{Computer Abstraction and Technology}
+	This section outlines the main idea's underpinning digital design in recent and contemporary history, circa 2020.
+		\subsection{Introduction}
+			This obligatory section reminds the reader the extent to which computers have revolutionised the world, in case the audience just emerged from a secluded cave on the Isle of Wight after 50 years of ritual meditation. 
+			
+			The highlight of this section is an indeterminable claim that if motor cars had improved at the same rate as computers we would be able to travel from New York to London in 1 second for a penny.
+			
+			Beyond that the section highlights the myriad of triumphs in the computing world, noting auto-mobile computing, cell phones, the sequencing of the human genome, the World Wide Web and search engines.
+			
+			\subsubsection{Traditional Classes of Computing Applications and Their Characteristics}
+			\begin{itemize}
+				\item \textbf{Servers} Servers have a wide range of cost and capability. Massive I/O, can handle a large complex program or several.
+				\item \textbf{Personal Computers} - 35 year old, the PC delivers low cost performance for a single user.
+				\item \textbf{Embedded Computers} The most widespread devices in use, and the current cutting edge of technology.
+			\end{itemize}
+			\subsubsection{What You Can Learn From This Book}
+			\begin{itemize}
+				\item \textbf{Translations to Hardware} - How higher level languages like C and Java are translated down to the machine level.
+				\item \textbf{Hardware-Software Interface} - The layer between the software and hardware and how they interact.
+				\item \textbf{Program Performance} - What determines performance at the programming level and how to optimize for it.
+				\item \textbf{Hardware Performance} - What determines performance at a hardware level and how it can be optimized.
+				\item \textbf{Power Performance} - How hardware and software be keyed for good or bad power consumption.
+				\item \textbf{Parallel Consequences} - The consequences of switching from sequential to parallel processing.
+				\item \textbf{Great Ideas in Modern Computing} - From the 1950's, its all been coming together. 
+			\end{itemize}
+			
+
+		\subsection{Eight Great Ideas in Computer Architecture}
+			\begin{description}
+				\item \textbf{Design for Moore's Law} - As is the theme of my thesis, Moore's Law no longer really holds. The point of this idea is that when designing you should pick your methodology so that it holds up when the product is completed. Designing for now ignores the time lag that results from design and build time.
+				\item \textbf{Use Abstraction to Simplify Design} - Abstraction is the key tool in any electrical or software engineers toolbox. By reducing a complex task to a black box with inputs and outputs, previous work can be leveraged to produce vast systems with speed an efficiency of design.
+				\item \textbf{Make the Common Case Fast} - Optimising for edge cases will rarely improve efficiency. Optimizing for the common case is usually easier than the complex case anyway.
+				\item \textbf{Performance via Parallelism} - By computing things in parallel, mutually exclusive tasks receive an easy speed boost, and dependant tasks can also see some improvements.
+				\item \textbf{Performance via Pipelining} - Described as similar to a bucket brigade. I will expand on this late.
+				\item \textbf{Performance via Prediction} - Guess which side of a if statement is next and begin running it in parallel.
+				\item \textbf{Hierarchy of Memories} - By having some memory be close and some memory be far, cost of memory can be maintained at a sensible level while 
+				\item \textbf{Dependability via Redundancy} - Including a second uC incase the first one breaks. Giving out 2 circuit boards incase one fails. Design for the probability of specific failures.
+			\end{description}
+		\subsection{Below Your Program}
+			Computers have hierarchies of abstraction layers. Main layer between application software and the hardware is the OS. This handles basic I/O, memory management and some degree of security.
+			
+			This section outlines the basic work done by a compiler in changing high level code into assembly, which is turned into opcode by an assembler.
+		\subsection{Under the Covers}
+			This section looks at the hardware. It describes the 5 classic components of a computer: input, output, memory, datapath and control. Datapath and control are often combined as the processor. Page 17 (43) has an excellent diagram of this.
+			
+			Inside any system, there is a PCB with a number of IC's. The most important of these is th processor, which contains the cache memory, which is SRAM. There may be an IC for DRAM or plug in sticks that give access to a large amount of DRAM.
+			
+			The next section is about comms, but that's out of the scope of my thesis.
+		\subsection{Technologies for Building Processors and Memory}
+			Silicon is the power behind all of the things we can do. Depending on how you process it chemically, it can be a conductor, insulator, or semiconductor. 
+		\subsection{Performance}
+			Measuring performance is made difficult by the need to choose and justify a metric. In a processor, response time, or execution time is a possible metric. Throughput or bandwidth also has potential.Different design choices affect these things differently. Getting a faster databus might improve the execution or bandwidth, but only if the databus is the limiting factor. Installing a second processor will improve throughput but won't improve the speed of individual jobs. There are many considerations.
+			
+			Performance in computers is determined as $\text{Performance}_{X} = \frac{1}{\text{Execution time}_{X}}$
+			
+			When comparing designs, asserting that "X is n times faster than Y" equates to $\frac{\text{Performance}_{X}}{\text{Performance}_{Y}} = n$
+			
+			\subsubsection{Measuring Performance
+				When measuring a CPU's performance, it is important to distinguish CPU execution time. This is distinct from I/O time or time lost due to multithreading or time lost in a shared system. It is also helpful to define User CPU time and System CPU time, the difference being whether the code is being executed in kernel mode or not.
+				
+				CPU time is a function of the speed with which a processor operates contrasted against the number of clock cycles it takes for operations.
+				
+				A good measure for my thesis would be clock cycles vs maximum viable clock speed. An alternative one commonly used is to take the average clock cycles per instruction and multiply that against the number of instructions used.
+				
+				Another interesting measurement is IPC, instructions per clock cycle. Some processors execute multiple instructions per clock cycle. IPC is an inversion of CPI.
+				
+				Intel 7 chips do computational sprinting.
+		\subsection{The Power Wall}
+			This section outlines part of the dark silicon problem: increasing frequencies leading to increasing power usage. It does not include the issue of post-Dennardian scaling.
+			
+			Basically, power is the new arena in which brave EE's knights and the wizards of the ECE tower must fight in.
+		
+		\subsection{The Sea Change: The Switch from Uniprocessors to Multiprocessors}
+			Parallelism is apparently the third rail of programming, and the authors find it "startling" that the industry at large is betting on programmers engaging in continued learning enough to learn parallel programming. I would like to be optimistic but I see their point.
+		\subsection{Real Stuff: Benchmarking the Intel Core I7}
+			SPEC CPU Benchmark. Worth a look.
+		\subsection{Fallacies and Pitfalls}
+			This chapter just clears misinformation in the field.
+			\begin{itemize}
+				\item Designing for performance is not mutually exclusive to designing for energy efficiency.
+				\item Using subsets of performance to measure improvements can be  problematic. MIPS is an example of this.
+			\end{itemize}
+		\subsection{Concluding Remarks}
+			The main takeaways from this should be about the pivot in computing to focus on energy efficiency/power and parallelism. Key to both of these is memory.
+		\subsection{Historical Perspective and Further Reading}
+			\textif{Page 54.e13 (90) contains a wealth of resources that can be used for the writing of the final thesis.}
+		
+			This section actually comes after the Exercises, and contains an interesting history of the researches and companies that developed the early computers.
+			
+			All of these computers were planned and marked as "1000x betters than the previous best computer" or "100x better than any computer in existence." The elephant in the room however was that none of these improvements could draw from a clear measure. The earliest measure was the speed with which a computer could do a single calculation, such as addition.
+			
+			A later methodology gave the \textif{average instruction execution time} by measuring the time individual instructions to and multiplying that by the instructions weight in the program. This measurement was a hop, skip and a jump into MIPS, which grew in popularity thereafter. 
+			
+			The next great step in benchmarking was the introduction of synthetic programs (not real world applicable). The first program was the Whetstone benchmark, which was measure in Whetstones per second, a value that equated to the number of Whetstone benchmark iterations completed in a minute. Soon followed the Dhrystone, which is still used in some embedded computing circles.
+			
+			Around the same time as the Whetstone, kernel benchmarks became popular. Kernel benchmarks involved taking a time intensive section from a real world program and using it for benchmarking. This was typically reserved for high end computers.
+			
+			Eventually this all lead to the System Performance Evaluation Cooperative (SPEC) group in 1988, comprised of representatives from many computing companies. They determined a set of real world programs and inputs that could be run to benchmark computers. It is likely that they will not be sufficient for modern computers in the future.
+			
+			At the time this book, 8-bit micro's were the best-selling processors in the world. To evaluate embedded performance, the Embedded Microprocessor Benchmark Consortium (EEMBC) started in 1997, consisting of a collection of kernels organised into suites that can be used for different sections of the embedded industry.
+			
+		\section{Instructions: Language of the Computer}
+			\subsection{Introduction}
+				This chapter of the book outlines the "secret" of computing: the stored-program concept. Herein we explore instructions and instruction sets. Ask not what you can do for instruction sets, but what instruction sets can do for you.
+			\subsection{Operations of the Computer Hardware}
+				RISC-V arithmetic instruction have a rigid notation, performing only 1 operation and always having 3 variables.
+				
+				Page 64 (103) has full list of all RISC-V commands.
+			\subsection{Operands of the Computer Hardware}
+			
+			\subsection{Signed and Unsigned Numbers}
+			
+			\subsection{Representing Instructions in the Computer}
+			
+			\subsection{Logical Operations}
+			
+			\subsection{Instructions for Making Decisions}
+			
+			\subsection{Supporting Procedures in Computer Hardware}
+			
+			\subsection{Communicating with People}
+			
+			\subsection{RISC-V Addressing for Wide Immediates and Addresses}
+			
+			\subsection{Parallelism and Instructions: Synchronization}
+			
+			\subsection{Translating and Starting a Program}
+			
+			\subsection{A C Sort Example to Put it All Together}
+			
+			\subsection{Arrays versus Pointers}
+			
+			\subsection{Advanced Material: Compiling C and Interpreting Java}
+			
+			\subsection{Real Stuff: MIPS Instructions}
+			
+			\subsection{Real Stuff: x86 Instructions}
+			
+			\subsection{Real Stuff: The Rest of the RISC-V Instruction Set}
+			
+			\subsection{Fallacies and Pitfalls}
+			
+			\subsection{Concluding Remarks}
+			
+			\subsection{Historical     Perspective and Further Reading}
+			
+			
+\end{document}
+

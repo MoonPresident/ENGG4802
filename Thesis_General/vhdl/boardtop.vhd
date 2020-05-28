@@ -37,9 +37,26 @@ use work.constants.all;
 
 entity boardtop is
     Port ( 
-            LED : out std_logic_vector(1 downto 0);
-            clk100mhz : in STD_LOGIC
-        );
+    
+        UART_TXD_IN : in STD_LOGIC;
+        UART_RXD_OUT : out STD_LOGIC;
+--        UART_CTS : 
+--        UART_RTS : 
+        AN : out STD_LOGIC_VECTOR (7 downto 0);
+        CA : out STD_Logic;
+        CB : out STD_Logic;
+        CC : out STD_Logic;
+        CD : out STD_Logic;
+        CE : out STD_Logic;
+        CF : out STD_Logic;
+        CG : out STD_Logic;
+        DP : out STD_Logic;
+        LED : out std_logic_vector(2 downto 0);
+        clk100mhz : in STD_LOGIC;
+        
+        BTNC: in std_logic;
+        BTNU: in std_logic
+    );
 end boardtop;
 
 architecture Behavioral of boardtop is
@@ -72,6 +89,18 @@ architecture Behavioral of boardtop is
         ); 
     end component;
     
+    component button_debouncer
+    Generic (
+        g_button_quant : integer := 1;
+        g_debounce_scalar : integer := 7
+    );
+    Port (  I_clk : in std_logic;
+            I_buttons : in STD_LOGIC_VECTOR (g_button_quant - 1 downto 0);
+            O_buttons_pulse : out STD_LOGIC_VECTOR (g_button_quant - 1 downto 0);
+            O_buttons_held : out STD_LOGIC_VECTOR (g_button_quant - 1 downto 0)
+    );
+    end component;
+    
     component prescaler
         Generic (
             width : integer
@@ -81,6 +110,68 @@ architecture Behavioral of boardtop is
             clk_out: out std_logic
         );
     end component;
+    
+    COMPONENT ssegDriver is
+        port (
+            clk : in std_logic;
+            rst : in std_logic;
+            cathode_p : out std_logic_vector(7 downto 0);
+            digit1_p : in std_logic_vector(3 downto 0);
+            anode_p : out std_logic_vector(7 downto 0);
+            digit2_p : in std_logic_vector(3 downto 0);
+            digit3_p : in std_logic_vector(3 downto 0);
+            digit4_p : in std_logic_vector(3 downto 0);
+            digit5_p : in std_logic_vector(3 downto 0);
+            digit6_p : in std_logic_vector(3 downto 0);
+            digit7_p : in std_logic_vector(3 downto 0);
+            digit8_p : in std_logic_vector(3 downto 0)
+        );
+    END COMPONENT;
+    
+    
+    component uart_tx is
+    generic (
+      g_CLKS_PER_BIT : integer := 115   -- Needs to be set correctly
+      );
+    port (
+      i_clk       : in  std_logic;
+      i_tx_dv     : in  std_logic;
+      i_tx_byte   : in  std_logic_vector(7 downto 0);
+      o_tx_active : out std_logic;
+      o_tx_serial : out std_logic;
+      o_tx_done   : out std_logic
+      );
+  end component uart_tx;
+ 
+  component uart_rx is
+    generic (
+      g_CLKS_PER_BIT : integer := 115   -- Needs to be set correctly
+      );
+    port (
+      i_clk       : in  std_logic;
+      i_rx_serial : in  std_logic;
+      o_rx_dv     : out std_logic;
+      o_rx_byte   : out std_logic_vector(7 downto 0)
+      );
+  end component uart_rx;
+  
+  -- Test Bench uses a 10 MHz Clock
+  -- Want to interface to 115200 baud UART
+  -- 10000000 / 115200 = 87 Clocks Per Bit.
+  constant c_CLKS_PER_BIT : integer := 870;
+ 
+  constant c_BIT_PERIOD : time := 8680 ns;
+   
+  signal r_CLOCK     : std_logic                    := '0';
+  signal r_TX_DV     : std_logic                    := '0';
+  signal r_TX_BYTE   : std_logic_vector(7 downto 0) := (others => '0');
+  signal w_TX_SERIAL : std_logic;
+  signal w_TX_DONE   : std_logic;
+  signal w_RX_DV     : std_logic;
+  signal w_RX_BYTE   : std_logic_vector(7 downto 0);
+  signal r_RX_SERIAL : std_logic := '1';
+  
+  
     
     
     signal cEng_core : std_logic := '0';
@@ -172,24 +263,76 @@ architecture Behavioral of boardtop is
     X"40101df3", --   csrrw    s11,0x401,zero
     X"40172e73", --   csrrs    t3,0x401,a4
     X"40101ef3", --   csrrw    t4,0x401,zero
-    X"0000006f", --             infloop
+    X"fadff06f", --             infloop
     others => X"00000000");
+
+--    constant ROM: rom_type:=(   
+--    X"00001011", --   addi     sp, sp, -32
+--    X"0000ec22", --   sd	   s0, 24(sp)
+--    X"00001000", --   addi     s0, sp, 32
+--    X"fe042623", --   sw	   zero, -20(s0)
+    
+--    X"fec42783", --   lw	   a5,-20(s0)
+--    X"00002785", --   addiw    a5, a5, 1
+--    X"fef42623", --   sw	   a5, -20(s0)
+
+--    X"0000006f", --             infloop
+--    others => X"00000000");
    
+   signal ssegAnode, ssegCathode: std_logic_vector(7 downto 0) := x"00";
+   
+   signal ssegClk: std_logic := '0';
+   signal leds: std_logic_vector(2 downto 0);
+   signal w_btnu: std_logic;
 
 begin
 
-    scaler0: prescaler 
-    GENERIC MAP (
-        width => 11
-    )
-    PORT MAP(
-        clk_in => clk100mhz,
-        clk_out => cEng_core
-    );
+    r_CLOCK <= clk100mhz;
+    LED(2) <= leds(2);
     
-
-   
-   
+    debouncer: button_debouncer
+        generic map(
+            g_button_quant      => 1,
+            g_debounce_scalar   => 20 
+        )
+        port map(
+            I_clk => r_clock,
+            I_buttons(0) => btnu,
+            o_buttons_pulse(0) => w_btnu
+        );
+--    w_RX_BYTE <= UART_TXD_IN;
+--    UART_RXD_OUT <= w_TX_SERIAL;
+    
+    r_RX_SERIAL <= UART_TXD_IN;
+    UART_RXD_OUT <= w_TX_SERIAL;
+    r_TX_DV <= w_btnu;
+    -- Instantiate UART transmitter
+    UART_TX_INST : uart_tx
+        generic map (
+            g_CLKS_PER_BIT => c_CLKS_PER_BIT
+        )
+        port map (
+            i_clk       => r_CLOCK,
+            i_tx_dv     => r_TX_DV,
+            i_tx_byte   => w_RX_BYTE,--r_TX_BYTE,
+            o_tx_active => leds(2),
+            o_tx_serial => w_TX_SERIAL,
+            o_tx_done   => w_TX_DONE
+        );
+ 
+    -- Instantiate UART Receiver
+    UART_RX_INST : uart_rx
+        generic map (
+            g_CLKS_PER_BIT => c_CLKS_PER_BIT
+        )
+        port map (
+            i_clk       => r_CLOCK,
+            i_rx_serial => r_RX_SERIAL,
+            o_rx_dv     => w_RX_DV,
+            o_rx_byte   => w_RX_BYTE
+        );
+    
+    
  	-- The O_we signal can sustain too long. Clamp it to only when O_cmd is active.
     MEM_WE <= MEM_O_cmd and MEM_O_we;
     
@@ -233,8 +376,6 @@ begin
         O_DBG=>debug
     );
     
-    LED(1 downto 0) <= debug(1 downto 0);
-    
     
     -- Huge process which handles memory request arbitration at the Soc/Core clock 
     MEM_proc: process(cEng_core)
@@ -272,16 +413,64 @@ begin
             end if;
         end if;
     end process;
-   
     
-    -- Stimulus process
-    stim_proc: process
-    begin        
-        -- hold reset state for 100 ns.
-        wait for 100 ns;    
-  
-        I_reset <= '0';
-        
-    end process;
+    AN <= ssegAnode;
+    
+    CA <= ssegCathode(0);
+    CB <= ssegCathode(1);
+    CC <= ssegCathode(2);
+    CD <= ssegCathode(3);
+    CE <= ssegCathode(4);
+    CF <= ssegCathode(5);
+    CG <= ssegCathode(6);
+    DP <= ssegCathode(7);
+
+    I_reset <= BTNC;
+
+
+    scaler0: prescaler 
+    GENERIC MAP (
+        width => 25
+    )
+    PORT MAP(
+        clk_in => clk100mhz,
+        clk_out => cEng_core
+    );
+    
+    LED(0) <= cEng_core;
+    
+    p2: prescaler
+    generic map(
+        width => 15
+    )
+    port map(
+        clk_in => clk100mhz,
+        clk_out => ssegClk
+    );
+    
+    sseg: ssegDriver
+    port map(
+        clk => ssegClk,
+        rst => I_reset,
+        cathode_p => ssegCathode,
+        anode_p => ssegAnode,
+        digit1_p => debug(3 downto 0),
+        digit2_p => debug(7 downto 4),
+        digit3_p => debug(11 downto 8),
+        digit4_p => debug(15 downto 12),
+        digit5_p => debug(19 downto 16),
+        digit6_p => debug(23 downto 20),
+        digit7_p => w_RX_BYTE(3 downto 0),--debug(27 downto 24),
+        digit8_p => w_RX_BYTE(7 downto 4)--debug(31 downto 28)
+--        digit1_p => MEM_I_data(3 downto 0),
+--        digit2_p => MEM_I_data(7 downto 4),
+--        digit3_p => MEM_I_data(11 downto 8),
+--        digit4_p => MEM_I_data(15 downto 12),
+--        digit5_p => MEM_I_data(19 downto 16),
+--        digit6_p => MEM_I_data(23 downto 20),
+--        digit7_p => MEM_I_data(27 downto 24),
+--        digit8_p => MEM_I_data(31 downto 28)
+    );
+
 
 end Behavioral;

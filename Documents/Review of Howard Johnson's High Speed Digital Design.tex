@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\title{Review of Howard Johnson and Martin Graham's High Speed Digital Design}
+\author{MoonPresident}
+
+\usepackage[margin=0.8in]{geometry}
+
+\usepackage{siunitx}
+\usepackage{mathtools}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	
+	\newpage
+	This book covers all of the underlying physics, but has nothing to do with design architectures. Good extra curricular reading, useful for designing high speed circuit boards.
+	
+	\section{Fundamentals}
+	The purpose of this section is to emphasis the importance of passive elements in high speed digital circuits (HSDC). Inductive effects that are trivial at low frequencies become vital considerations at low frequencies. 
+	\subsection{Frequency and Time}
+	To emphasize their point, Johnson and Graham considers a transistor circuit with a sine wave operating at 10\textsuperscript{-12} Hz, completing a cycle every 30,000 years. While the mathematics might suggest a lethargic signal response, a real test would not function, as unexpected behaviour would come into play when the circuit crumbles to dust over a period beyond its life span.
+	
+	Fringe case frequencies change the assumptions we can use when designing circuits. A \SI{0.01}{\ohm} resistor at 1kHz becomes a \SI{1}{\ohm} resistor at 1GHz with an addition \SI{50}{\ohm} of inductive resistance. 
+	
+	An important metric is HSDC's is the F\textsubscript{knee}, the frequency below which most energy exists. Exact values for this metric are ill-defined and vary between sources.
+	
+	For this book, $$F_{knee} = \frac{0.5}{T_{r}}$$
+	Frequencies above the knee have trivial effects.
+	\subsection{Time and Distance}
+	This section is short and focusses on the nature of EM signal propagation. The main takeaway is that the propagation delay (usually measured in picoseconds per inch) is proportional to the square root of the mediums dielectric constant.
+	
+	Fun fact, the propagation delay of an EM wave in air is 85 ps/in. Also, out layer PCB traces are always faster than inner traces. This is because the inner traces are surrounded by PCB, giving them an dielectric constant of 4.5, while the outer traces are surrounded half by PCB, ad half by air, resulting in a lower dielectric.
+	\subsection{Lumped vs Distributed Systems}
+	Here we observe the difference between an Lumped and Distributed system. A lumped system is one where the propagation path is so short as to render the distribution of electrical potential effectively uniform. This is defined as being 1/6th the length of the rising edge. 
+	$$l = \frac{T_{r}}{D}$$
+	$$l = \text{length of rising edge in inches}$$
+	$$T_{r} = \text{rise time in picoseconds}$$
+	$$D = \text{delay in ps/in}$$
+	\subsection{A Note about 3-dB and RMS Frequencies}
+	Outlines the importance of the relationship between the cuttoff frequency $F_3cB$, the rise time $T_{r}$ and $K$. K is the constant used to determine the relationship between the former values, and it is determined by pulse shape. K is 0.338 for a Gaussian, 0.35 for a single pole exponential decay. $$K \approx T_{r} F_{3dB}$$
+	
+	The same relationship exists when using $F_{RMS}$, with the K value ranging from 0.361 for a Gaussian pulse to 0.549 for a single-pole exponential decay.
+	
+	If in doubt as the whether its a single pole or a Gaussian, use K = 0.45.
+	\subsection{Four Kinds of Reactance}
+		\begin{description}
+			\item Capacitance
+			\item Inductance
+			\item Mutual Capacitance
+			\item Mutual Inductance
+		\end{description}
+	A good passage in this section: paraphrasing, "There are many ways to study capacitance and inductance. A Microwave engineer uses Maxwell's equations. A Control System designer uses Laplace transforms. A Spice user applies linear equations. Digital engineers use the step response."
+	\subsection{Ordinary Capacitance}
+	This section outlines a design to test capacitance using a pulse generator and an oscilloscope.
+	\subsection{Ordinary Inductance}
+	Same as previous section but for inductance.
+	\subsection{A Better Method for Estimating Decay Time}
+	This section continues a subject from the previous chapter, considering ways to get more accurate approximations of decay time.
+	\subsection{Mutual Capacitance}
+	Mutual capacitance exists between all circuits. Given that capacitors effectively become short circuits at high enough frequencies, mutual capacitance can be a problem in high speed circuits.
+	
+	Mutual Capacitance can be approximated by the formula $$C_{M} = \frac{area}{R_{B}\delta V}$$ where 'area' refers to the area under the curve of the step response.
+	
+	In general, mutual inductance is a bigger problem than mutual capacitance.
+	\subsection{Mutual Inductance}
+	The main takeaway for now is that a \SI{50}{\ohm} circuit has worse trouble with MI but a higher impedance circuit often has a worse time with MC. However, in general the MI is worse than the MC.
+	
+	\section{High-Speed Properties of Logic Gates}
+	This section covers some history of digital circuits, starting with the wire relays of the 1940's. It covers the speed, power and packaging, the physical properties of different packaging methods, the thermal qualities of packages and how all these things relate the HSDC design.
+	
+	\section{Measurement Techniques}
+	This section outlines methodologies for measuring anything you could possibly measure. Lots of measuring of magnetic responses on the outputs of DIP packages, there is advice on probe types and group loop fixtures for low inductance. Good advice on fixtures to add to embedded systems for probing, and on avoiding interference from Probe Shield Currents.
+	
+	Other advice includes the how-to on reading serial data and slowing the system clock, as well as how to observe cross talk. There are sections on measuring operation Margins and measuring metastable states.
+	
+	Read this section if you have the time, it is very informative.
+	\section{Transmission Lines}
+	Transmission lines are superior than point to point wiring at high speeds for less distortion, less EMI and less crosstalk.
+	\subsection{Shortcomings of Ordinary Point-to-Point Wiring}
+	This section covers the adventures of NEWCO, who built a large scale prototype of their first high-speed process using p-to-p wiring on a 16in by 20in board.
+	
+	The lumped circuits had a high Q and experienced large amounts of ringing. This ringing was caused by unterminated circuitry. which always causes ringing in distributed circuits.
+	
+	The p-to-p wiring was then gathered together in bundles to allow engineers to see the chip names. This exacerbated the EMI that was present. The system had 2000 nets and 600 gates and thus was likely to experience cross talk.
+	\subsection{Infinite Uniform Transmission Line}
+	This section covers the lossless and lossy varieties of transmission lines. It also has 8 good rules of thumb for calculating the resistance of round copper wires on page 145 (152).
+	
+	This section further examines RC transmission lines, the skin effect and the proximity effect.
+	
+	The closing notes are that total wiring resistance is usually a small fraction of transmission line impedence for ordinary digital applications, the skin effect becomes a significant limitation on long transmission line, attenuating with a square root proportion to frequency. The proximity effect is relatively minor with respects to attenuation. Dielectric loss can be ignored for digital applications sub 1GHz.
+	\subsection{Effects of Source and Load Impedance}
+	This section covers the deterioration of performance associated with and real-world source and load impedances, and cases in which ringing arises.
+	\subsection{Special Transmission Line Cases}
+	Edge cases of transmission lines. The unterminated line, a line with a capacitor in the middle, uniformly loaded buses and right angle bends and delay lines.
+	
+	Key points: capacitive loads degrade rise time of passing signal and reflect back pulses. Uniform capacitive loads reduce effective impedance and slow a t-line down. A printed circuit trace os an effective small delay line.
+	\subsection{Line Impedance and Propagation Delay}
+	Motorola MECL System Design Handbook and PCB trace design. Tip, the critical dimension for the latter is trace width to height above ground. Aside from that, its more t-line physics.
+	
+	\section{Ground Planes and Layer Stacking}
+	
+	\section{Terminations}
+	
+	\section{Vias}
+	
+	\section{Power Systems}
+	
+	\section{Connectors}
+		
+	\section{Ribbon Cables}
+	
+	\section{Clock Distribution}
+	
+	\section{Clock Oscillators}
+	
+	\section{Collected References}
+	
+	\section{Appendix}
+	\subsection{A. Points to Remember}
+	This is all the of end of chapter notes.
+	\subsection{Calculation of Rise Time}
+	
+	\subsection{MathCad Formulas}
+	
+	
+\end{document}

@@ -69,7 +69,7 @@ architecture Behavioral of rpu_core_tb is
     END COMPONENT;
     
     
-    signal cEng_core : std_logic := '0';
+        signal cEng_core : std_logic := '0';
     signal I_reset : std_logic := '1';
     signal I_halt : std_logic := '0';
     signal I_int : std_logic := '0';
@@ -88,22 +88,22 @@ architecture Behavioral of rpu_core_tb is
     signal MEM_O_data : std_logic_vector(31 downto 0) := (others => '0');
     
     signal I_int_data:  STD_LOGIC_VECTOR(31 downto 0);
-    signal MEM_I_data_raw : std_logic_vector(31 downto 0) := (others => '0');
+            signal MEM_I_data_raw : std_logic_vector(31 downto 0) := (others => '0');
     
     -- Clock period definitions
     constant I_clk_period : time := 10 ns;
     
     
-    signal MEM_readyState: integer := 0;
-    
-    
-    -- SOC_CtrState definitions - running off SOC clock domain
-    constant SOC_CtlState_Ready : integer :=  0;
-    
-    -- IMM SOC control states are immediate 1-cycle latency
-    -- i.e. BRAM or explicit IO
-    constant SOC_CtlState_IMM_WriteCmdComplete : integer := 9;
-    constant SOC_CtlState_IMM_ReadCmdComplete : integer := 6;
+        signal MEM_readyState: integer := 0;
+        
+        
+        -- SOC_CtrState definitions - running off SOC clock domain
+        constant SOC_CtlState_Ready : integer :=  0;
+        
+        -- IMM SOC control states are immediate 1-cycle latency
+        -- i.e. BRAM or explicit IO
+        constant SOC_CtlState_IMM_WriteCmdComplete : integer := 9;
+        constant SOC_CtlState_IMM_ReadCmdComplete : integer := 6;
         
     signal IO_LEDS: STD_LOGIC_VECTOR(7 downto 0):= (others => '0');
     signal INT_DATA: std_logic_vector(BWIDTHM1 downto 0):= (others => '0');
@@ -120,7 +120,7 @@ architecture Behavioral of rpu_core_tb is
     signal MEM_CS_BRAM_2 : std_logic := '0';
     signal MEM_CS_BRAM_3 : std_logic := '0';
     
-    signal mI_wea : STD_LOGIC_VECTOR ( 3 downto 0 ):= (others => '0');
+        signal mI_wea : STD_LOGIC_VECTOR ( 3 downto 0 ):= (others => '0');
     
     signal MEM_CS_DDR3 : std_logic := '0';
     
@@ -131,10 +131,11 @@ architecture Behavioral of rpu_core_tb is
     signal MEM_DATA_OUT_BRAM_3: std_logic_vector(BWIDTHM1 downto 0):= (others => '0');
    
     
-    signal    O_DBG: std_logic_vector(63 downto 0);
+        signal    O_DBG: std_logic_vector(63 downto 0);
         
         
-     type rom_type is array (0 to 31) of std_logic_vector(31 downto 0);
+         type rom_type is array (0 to 31)
+               of std_logic_vector(31 downto 0);
                
      constant ROM: rom_type:=(   
      X"00008137", --   lui      sp,0x8
@@ -158,10 +159,9 @@ architecture Behavioral of rpu_core_tb is
      X"40101df3", --   csrrw    s11,0x401,zero
      X"40172e73", --   csrrs    t3,0x401,a4
      X"40101ef3", --   csrrw    t4,0x401,zero
-     X"0000006f", --             infloop
-     others => X"00000000");
-       
-    BEGIN
+     X"fadff06f", --             infloop
+       others => X"00000000");
+BEGIN
    
    
  	-- The O_we signal can sustain too long. Clamp it to only when O_cmd is active.
@@ -187,7 +187,7 @@ architecture Behavioral of rpu_core_tb is
                   else MEM_DATA_OUT_BRAM_3 when MEM_CS_BRAM_3 = '1' 
                   else IO_DATA;
  
-    MEM_I_data  <= ROM(to_integer(unsigned( MEM_64KB_ADDR(15 downto 2) )));
+ MEM_I_data  <= ROM(to_integer(unsigned( MEM_64KB_ADDR(15 downto 2) )));
 
         
                
@@ -199,24 +199,24 @@ architecture Behavioral of rpu_core_tb is
             wait for I_clk_period/2;
     end process;
 
-    core0: core PORT MAP (
-        I_clk => cEng_core,
-        I_reset => I_reset,
-        I_halt => I_halt,
-        I_int => I_int,
-        O_int_ack => O_int_ack,
-        I_int_data => I_int_data,
-        MEM_I_ready => MEM_I_ready,
-        MEM_O_cmd => MEM_O_cmd,
-        MEM_O_we => MEM_O_we,
-        MEM_O_byteEnable => MEM_O_byteEnable,
-        MEM_O_addr => MEM_O_addr,
-        MEM_O_data => MEM_O_data,
-        MEM_I_data => MEM_I_data,
-        MEM_I_dataReady => MEM_I_dataReady
-        ,
-        O_DBG=>O_DBG
-    );
+   core0: core PORT MAP (
+          I_clk => cEng_core,
+          I_reset => I_reset,
+          I_halt => I_halt,
+          I_int => I_int,
+          O_int_ack => O_int_ack,
+          I_int_data => I_int_data,
+          MEM_I_ready => MEM_I_ready,
+          MEM_O_cmd => MEM_O_cmd,
+          MEM_O_we => MEM_O_we,
+          MEM_O_byteEnable => MEM_O_byteEnable,
+          MEM_O_addr => MEM_O_addr,
+          MEM_O_data => MEM_O_data,
+          MEM_I_data => MEM_I_data,
+          MEM_I_dataReady => MEM_I_dataReady
+		  ,
+		  O_DBG=>O_DBG
+        );
         
         
 
@@ -227,14 +227,19 @@ architecture Behavioral of rpu_core_tb is
         if rising_edge(cEng_core) then
             if MEM_readyState = SOC_CtlState_Ready then
                 if MEM_O_cmd = '1' then
+                
+                 
+                    
                     MEM_I_ready <= '0';
                     MEM_I_dataReady  <= '0';
-                    
                     if MEM_O_we = '1' then
                         -- DDR3 request, or immediate command?
+                         
                         MEM_readyState <= SOC_CtlState_IMM_WriteCmdComplete;
+                         
                     else
                         -- DDR3 request, or immediate command?
+                        
                         MEM_readyState <= SOC_CtlState_IMM_ReadCmdComplete; 
                     end if;
                     
@@ -253,21 +258,21 @@ architecture Behavioral of rpu_core_tb is
                     MEM_I_dataReady  <= '0'; 
                     MEM_readyState <= SOC_CtlState_Ready;
           
-                end if;
             end if;
         end if;
-    end process;
+    end if;
+  end process;
    
     
-    -- Stimulus process
-    stim_proc: process
-    begin        
+     -- Stimulus process
+     stim_proc: process
+     begin        
         -- hold reset state for 100 ns.
         wait for 100 ns;    
   
         I_reset <= '0';
         
-    end process;
+     end process;
 
 
 end Behavioral;
