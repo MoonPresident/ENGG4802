@@ -2,7 +2,6 @@ import serial
 
 
 file = input("Input filename: ")
-
 file = open(file, 'r')
 
 outputFile = file.name.split('.')
@@ -81,8 +80,10 @@ class rType:
         self.opcode = _opcode
 
     def getHex():
-        pass
+        #7 bits, 5 bits, 5 bits, 3 bits, 5 bits, 7 bits
+        print(bitarray(funct7), bitarray(rs2), bitarray(rs1), bitarray(funct3), bitarray(rd), bitarray(opcode))
 
+        
 class iType:
     imm     = 0
     rs1     = 0
@@ -97,6 +98,7 @@ class iType:
         self.rd     = _rd
         self.opcode = _opcode
 
+
 class sType:
     imm     = 0
     rs2     = 0
@@ -110,6 +112,11 @@ class sType:
         self.rs1    = _rs1
         self.funct3 = _funct3
         self.opcode = _opcode
+
+    def getHex():
+        #7 bits, 5 bits, 5 bits, 3 bits, 5 bits, 7 bits
+        print(bitarray(imm), bitarray(rs2), bitarray(rs1), bitarray(funct3), bitarray(rd), bitarray(opcode))
+
 
 class bType(sType):
     def getHex():
@@ -139,31 +146,32 @@ opcode = {
     "sh"    : ['sType', '0100011', '001'],
     "sw"    : ['sType', '0100011', '010'],
     
-    "addi"  : '',
-    "slti"  : '',
-    "sltiu" : '',
-    "xori"  : '',
-    "ori"   : '',
-    "andi"  : '',
+    "addi"  : ['iType', '0010011', '000'],
+    "slti"  : ['iType', '0010011', '010'],
+    "sltiu" : ['iType', '0010011', '011'],
+    "xori"  : ['iType', '0010011', '100'],
+    "ori"   : ['iType', '0010011', '110'],
+    "andi"  : ['iType', '0010011', '111'],
     
-    "slli" : '',
-    "srli" : '',
-    "srai" : '',
+    "slli"  : ['rType', '0010011', '001', '0000000'],
+    "srli"  : ['rType', '0010011', '101', '0000000'],
+    "srai"  : ['rType', '0010011', '101', '0100000'],
     
-    "add" : '',
-    "sub" : '',
-    "sll" : '',
-    "slt" : '',
-    "sltu" : '',
-    "xor" : '',
-    "srl" : '',
-    "sra" : '',
-    "or" : '',
-    "and" : '',
-    
-    "fence" : '',
-    "ecall" : '',
-    "ebreak" : ''
+    "add"   : ['rType', '0110011', '000', '0000000'],
+    "sub"   : ['rType', '0110011', '000', '0100000'],
+    "sll"   : ['rType', '0110011', '001', '0000000'],
+    "slt"   : ['rType', '0110011', '010', '0000000'],
+    "sltu"  : ['rType', '0110011', '011', '0000000'],
+    "xor"   : ['rType', '0110011', '100', '0000000'],
+    "srl"   : ['rType', '0110011', '101', '0000000'],
+    "sra"   : ['rType', '0110011', '101', '0100000'],
+    "or"    : ['rType', '0110011', '110', '0000000'],
+    "and"   : ['rType', '0110011', '111', '0000000'],
+
+    #special cases
+    #"fence" : [fm, pred, succ, rs1, 000, rd, 0001111]
+    "ecall" : ['00000000000000000000000001110011'],
+    "ebreak" : ['00000000000100000000000001110011']
 }
 
 while(command != ""):
