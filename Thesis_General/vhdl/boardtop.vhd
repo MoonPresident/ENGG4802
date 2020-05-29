@@ -241,43 +241,38 @@ architecture Behavioral of boardtop is
     
     type rom_type is array (0 to 31) of std_logic_vector(31 downto 0);
            
-    constant ROM: rom_type:=(   
-    X"00008137", --   lui      sp,0x8
-    X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
-    X"c00015f3", --   csrrw    a1,cycle,zero
-    X"c8001673", --   csrrw    a2,cycleh,zero
-    X"f13016f3", --   csrrw    a3,mimpid,zero
-    X"30101773", --   csrrw    a4,misa,zero
-    X"c02017f3", --   csrrw    a5,instret,zer
-    X"c8201873", --   csrrw    a6,instreth,ze
-    X"c00018f3", --   csrrw    a7,cycle,zero
-    X"c8001973", --   csrrw    s2,cycleh,zero
-    X"400019f3", --   csrrw    s3,0x400,zero
-    X"40069a73", --   csrrw    s4,0x400,a3
-    X"40001af3", --   csrrw    s5,0x400,zero
-    X"40011b73", --   csrrw    s6,0x400,sp
-    X"40001bf3", --   csrrw    s7,0x400,zero
-    X"40073c73", --   csrrc    s8,0x400,a4
-    X"40001cf3", --   csrrw    s9,0x400,zero
-    X"40111d73", --   csrrw    s10,0x401,sp
-    X"40101df3", --   csrrw    s11,0x401,zero
-    X"40172e73", --   csrrs    t3,0x401,a4
-    X"40101ef3", --   csrrw    t4,0x401,zero
-    X"fadff06f", --             infloop
-    others => X"00000000");
-
 --    constant ROM: rom_type:=(   
---    X"00001011", --   addi     sp, sp, -32
---    X"0000ec22", --   sd	   s0, 24(sp)
---    X"00001000", --   addi     s0, sp, 32
---    X"fe042623", --   sw	   zero, -20(s0)
-    
---    X"fec42783", --   lw	   a5,-20(s0)
---    X"00002785", --   addiw    a5, a5, 1
---    X"fef42623", --   sw	   a5, -20(s0)
-
---    X"0000006f", --             infloop
+--    X"00008137", --   lui      sp,0x8
+--    X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
+--    X"c00015f3", --   csrrw    a1,cycle,zero
+--    X"c8001673", --   csrrw    a2,cycleh,zero
+--    X"f13016f3", --   csrrw    a3,mimpid,zero
+--    X"30101773", --   csrrw    a4,misa,zero
+--    X"c02017f3", --   csrrw    a5,instret,zero
+--    X"c8201873", --   csrrw    a6,instreth,zero
+--    X"c00018f3", --   csrrw    a7,cycle,zero
+--    X"c8001973", --   csrrw    s2,cycleh,zero
+--    X"400019f3", --   csrrw    s3,0x400,zero
+--    X"40069a73", --   csrrw    s4,0x400,a3
+--    X"40001af3", --   csrrw    s5,0x400,zero
+--    X"40011b73", --   csrrw    s6,0x400,sp
+--    X"40001bf3", --   csrrw    s7,0x400,zero
+--    X"40073c73", --   csrrc    s8,0x400,a4
+--    X"40001cf3", --   csrrw    s9,0x400,zero
+--    X"40111d73", --   csrrw    s10,0x401,sp
+--    X"40101df3", --   csrrw    s11,0x401,zero
+--    X"40172e73", --   csrrs    t3,0x401,a4
+--    X"40101ef3", --   csrrw    t4,0x401,zero
+--    X"fadff06f", --             infloop
 --    others => X"00000000");
+
+    constant ROM: rom_type:=(   
+    X"00042783", --   lw	   a5,-20(s0)
+    X"00178793", --   addi     a5, a5, 1
+    X"00f41023", --   sw	   a5, -20(s0)
+
+    X"ff9ff06f", --   jalr   
+    others => X"00000000");
    
    signal ssegAnode, ssegCathode: std_logic_vector(7 downto 0) := x"00";
    

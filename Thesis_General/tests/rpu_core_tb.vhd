@@ -134,33 +134,40 @@ architecture Behavioral of rpu_core_tb is
         signal    O_DBG: std_logic_vector(63 downto 0);
         
         
-         type rom_type is array (0 to 31)
+         type rom_type is array (0 to 1023)
                of std_logic_vector(31 downto 0);
                
-     constant ROM: rom_type:=(   
-     X"00008137", --   lui      sp,0x8
-     X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
-     X"c00015f3", --   csrrw    a1,cycle,zero
-     X"c8001673", --   csrrw    a2,cycleh,zero
-     X"f13016f3", --   csrrw    a3,mimpid,zero
-     X"30101773", --   csrrw    a4,misa,zero
-     X"c02017f3", --   csrrw    a5,instret,zer
-     X"c8201873", --   csrrw    a6,instreth,ze
-     X"c00018f3", --   csrrw    a7,cycle,zero
-     X"c8001973", --   csrrw    s2,cycleh,zero
-     X"400019f3", --   csrrw    s3,0x400,zero
-     X"40069a73", --   csrrw    s4,0x400,a3
-     X"40001af3", --   csrrw    s5,0x400,zero
-     X"40011b73", --   csrrw    s6,0x400,sp
-     X"40001bf3", --   csrrw    s7,0x400,zero
-     X"40073c73", --   csrrc    s8,0x400,a4
-     X"40001cf3", --   csrrw    s9,0x400,zero
-     X"40111d73", --   csrrw    s10,0x401,sp
-     X"40101df3", --   csrrw    s11,0x401,zero
-     X"40172e73", --   csrrs    t3,0x401,a4
-     X"40101ef3", --   csrrw    t4,0x401,zero
-     X"fadff06f", --             infloop
-       others => X"00000000");
+--     constant ROM: rom_type:=(   
+--     X"00008137", --   lui      sp,0x8
+--     X"ffc10113", --   addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
+--     X"c00015f3", --   csrrw    a1,cycle,zero
+--     X"c8001673", --   csrrw    a2,cycleh,zero
+--     X"f13016f3", --   csrrw    a3,mimpid,zero
+--     X"30101773", --   csrrw    a4,misa,zero
+--     X"c02017f3", --   csrrw    a5,instret,zer
+--     X"c8201873", --   csrrw    a6,instreth,ze
+--     X"c00018f3", --   csrrw    a7,cycle,zero
+--     X"c8001973", --   csrrw    s2,cycleh,zero
+--     X"400019f3", --   csrrw    s3,0x400,zero
+--     X"40069a73", --   csrrw    s4,0x400,a3
+--     X"40001af3", --   csrrw    s5,0x400,zero
+--     X"40011b73", --   csrrw    s6,0x400,sp
+--     X"40001bf3", --   csrrw    s7,0x400,zero
+--     X"40073c73", --   csrrc    s8,0x400,a4
+--     X"40001cf3", --   csrrw    s9,0x400,zero
+--     X"40111d73", --   csrrw    s10,0x401,sp
+--     X"40101df3", --   csrrw    s11,0x401,zero
+--     X"40172e73", --   csrrs    t3,0x401,a4
+--     X"40101ef3", --   csrrw    t4,0x401,zero
+--     X"fadff06f", --             infloop
+--       others => X"00000000");
+       
+   constant ROM: rom_type:=(   
+  X"06442783",  -- lw     a5,100(s0)
+  X"00178793",  -- addi   a5, a5, 1
+  X"06f41223",  -- sh     s0,100(a5)
+  X"ffbff06f",  -- jal    zero,-6  
+    others => X"00000000");
 BEGIN
    
    
@@ -187,7 +194,7 @@ BEGIN
                   else MEM_DATA_OUT_BRAM_3 when MEM_CS_BRAM_3 = '1' 
                   else IO_DATA;
  
- MEM_I_data  <= ROM(to_integer(unsigned( MEM_64KB_ADDR(15 downto 2) )));
+    MEM_I_data  <= ROM(to_integer(unsigned( MEM_64KB_ADDR(15 downto 2) )));
 
         
                

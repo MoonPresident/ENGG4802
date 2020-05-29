@@ -385,77 +385,77 @@ begin
 		O_PC => PC
 		);
 
-	   control: control_unit PORT MAP (
-            I_clk => core_clock,
-            I_reset => I_reset,
-            I_halt => should_halt,
-            I_aluop => aluop,
-            
-            I_int => lint_int,
-            O_int_ack => lint_reset,
-            I_int_enabled => int_enabled,
-            I_int_mem_data=> lint_int_data,
-            O_idata=> int_idata,
-            O_set_idata=> int_set_idata,
-            O_set_ipc=> PCintVec,
-            O_set_irpc => int_set_irpc,
-            O_instTick => csru_instRetTick,
-            I_ready => memctl_ready,
-            O_execute => memctl_execute,
-            I_dataReady => memctl_dataReady,
-            O_state => state
-	   );
+    control: control_unit PORT MAP (
+        I_clk => core_clock,
+        I_reset => I_reset,
+        I_halt => should_halt,
+        I_aluop => aluop,
+        
+        I_int => lint_int,
+        O_int_ack => lint_reset,
+        I_int_enabled => int_enabled,
+        I_int_mem_data=> lint_int_data,
+        O_idata=> int_idata,
+        O_set_idata=> int_set_idata,
+        O_set_ipc=> PCintVec,
+        O_set_irpc => int_set_irpc,
+        O_instTick => csru_instRetTick,
+        I_ready => memctl_ready,
+        O_execute => memctl_execute,
+        I_dataReady => memctl_dataReady,
+        O_state => state
+    );
 			
-	   decoder: decoder_RV32 PORT MAP (
-          I_clk => core_clock,
-          I_en => en_decode,
-          I_dataInst => instruction,
-          O_selRS1 => selRS1,
-          O_selRS2 => selRS2,
-          O_selD => selD,
-          O_dataIMM => dataIMM,
-          O_regDwe => dataDwe,
-          O_aluOp => aluOp,
-          O_aluFunc => aluFunc,
-		  O_memOp => memOp,
-          O_csrOp => csru_csrOp,
-          O_csrAddr => csru_csrAddr,
-          O_trapExit => decoder_trap_exit,
-          -- This unit can raise exceptions
-          O_int => decoder_int,
-          O_int_data => decoder_int_data,
-          I_int_ack => decoder_int_ack
-        );
+    decoder: decoder_RV32 PORT MAP (
+        I_clk => core_clock,
+        I_en => en_decode,
+        I_dataInst => instruction,
+        O_selRS1 => selRS1,
+        O_selRS2 => selRS2,
+        O_selD => selD,
+        O_dataIMM => dataIMM,
+        O_regDwe => dataDwe,
+        O_aluOp => aluOp,
+        O_aluFunc => aluFunc,
+        O_memOp => memOp,
+        O_csrOp => csru_csrOp,
+        O_csrAddr => csru_csrAddr,
+        O_trapExit => decoder_trap_exit,
+        -- This unit can raise exceptions
+        O_int => decoder_int,
+        O_int_data => decoder_int_data,
+        I_int_ack => decoder_int_ack
+    );
 		  
-   alu: alu_RV32I PORT MAP (
-          I_clk => core_clock,
-          I_en => en_alu,
-          I_dataA => dataA,
-          I_dataB => dataB,
-          I_dataDwe => dataDwe,
-          I_aluop => aluop(6 downto 2),
-          I_aluFunc => aluFunc,
-          I_PC => PC,
-          I_epc => csr_epc,
-          I_dataIMM => dataIMM,
-          O_dataResult => dataResult,
-          O_branchTarget => branchTarget,
-          O_dataWriteReg => dataWriteReg,
-          O_lastPC => lastPC_alu,
-          O_shouldBranch => shouldBranch
-        );
+    alu: alu_RV32I PORT MAP (
+        I_clk => core_clock,
+        I_en => en_alu,
+        I_dataA => dataA,
+        I_dataB => dataB,
+        I_dataDwe => dataDwe,
+        I_aluop => aluop(6 downto 2),
+        I_aluFunc => aluFunc,
+        I_PC => PC,
+        I_epc => csr_epc,
+        I_dataIMM => dataIMM,
+        O_dataResult => dataResult,
+        O_branchTarget => branchTarget,
+        O_dataWriteReg => dataWriteReg,
+        O_lastPC => lastPC_alu,
+        O_shouldBranch => shouldBranch
+    );
 		  
 	reg: register_set PORT MAP (
-          I_clk => core_clock,
-		  I_en => reg_en,
-          I_dataD => registerWriteData,
-          O_dataA => dataA,
-          O_dataB => dataB,
-          I_selRS1 => selRS1,
-          I_selRS2 => selRS2,
-          I_selD => selD,
-          I_we => reg_we
-        );
+        I_clk => core_clock,
+		I_en => reg_en,
+        I_dataD => registerWriteData,
+        O_dataA => dataA,
+        O_dataB => dataB,
+        I_selRS1 => selRS1,
+        I_selRS2 => selRS2,
+        I_selD => selD,
+        I_we => reg_we
+    );
      
     csru: csr_unit PORT MAP (
 
@@ -517,7 +517,7 @@ begin
    --     O_int_epc => PC_at_int
     );
 
-O_int_ack <= external_int_ack;
+    O_int_ack <= external_int_ack;
 
 	state_latcher: process(core_clock)
 	begin
