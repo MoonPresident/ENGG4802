@@ -1,22 +1,4 @@
-lui      sp,0x8
-addi     sp,sp,-4 # 7ffc <_end+0x7fd0>
-csrrw    a1,cycle,zero
-csrrw    a2,cycleh,zero
-csrrw    a3,mimpid,zero
-csrrw    a4,misa,zero
-csrrw    a5,instret,zer
-csrrw    a6,instreth,ze
-csrrw    a7,cycle,zero
-csrrw    s2,cycleh,zero
-csrrw    s3,0x400,zero
-csrrw    s4,0x400,a3
-csrrw    s5,0x400,zero
-csrrw    s6,0x400,sp
-csrrw    s7,0x400,zero
-csrrc    s8,0x400,a4
-csrrw    s9,0x400,zero
-csrrw    s10,0x401,sp
-csrrw    s11,0x401,zero
-csrrs    t3,0x401,a4
-csrrw    t4,0x401,zero
-jal      zero,-54          infloop
+lw     a5,100(s0)
+addi   a5, a5, 1
+sh     s0,100(a5)
+jal    zero,-6

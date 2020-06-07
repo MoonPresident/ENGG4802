@@ -84,12 +84,12 @@ begin
         int2_ack <= '0';
         int3_ack <= '0';
       elsif reset_counter = 1 then
-         reset_counter <= 2;
-       elsif reset_counter = 2 then
-          reset_counter <= 3;
-    elsif reset_counter = 3 then
-       actual_int <= '0';
-       reset_counter <= 0;
+        reset_counter <= 2;
+      elsif reset_counter = 2 then
+        reset_counter <= 3;
+      elsif reset_counter = 3 then
+        actual_int <= '0';
+        reset_counter <= 0;
       elsif reset_counter = 0 and actual_int = '0' then
           
           if I_enMask(0) = '1' and I_int0 = '1' and int0_ack = '0' then
