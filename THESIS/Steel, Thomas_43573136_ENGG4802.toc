@@ -1,0 +1,56 @@
+\contentsline {chapter}{\numberline {1}Thesis Definition and Scope}{4}%
+\contentsline {section}{\numberline {1.1}Definition}{4}%
+\contentsline {section}{\numberline {1.2}Scope}{4}%
+\contentsline {chapter}{\numberline {2}Background Theory}{6}%
+\contentsline {section}{\numberline {2.1}Dark Silicon}{6}%
+\contentsline {subsection}{\numberline {2.1.1}Obituary for Moore’s Law and Dennard Scaling}{6}%
+\contentsline {subsection}{\numberline {2.1.2}The minimum energy for computing}{6}%
+\contentsline {subsection}{\numberline {2.1.3}The Four Horsemen of Dark Silicon}{7}%
+\contentsline {subsection}{\numberline {2.1.4}Memory Driven Computing}{8}%
+\contentsline {subsection}{\numberline {2.1.5}The Dark Side of Silicon}{8}%
+\contentsline {section}{\numberline {2.2}Task Scheduling}{9}%
+\contentsline {subsection}{\numberline {2.2.1}Relationship with Dark Silicon}{9}%
+\contentsline {subsection}{\numberline {2.2.2}Algorithms}{9}%
+\contentsline {subsection}{\numberline {2.2.3}Methodologies}{9}%
+\contentsline {section}{\numberline {2.3}Thermal Modelling}{9}%
+\contentsline {subsection}{\numberline {2.3.1}Methods}{9}%
+\contentsline {subsection}{\numberline {2.3.2}Limits}{10}%
+\contentsline {subsection}{\numberline {2.3.3}Relationship with Dark Silicon}{10}%
+\contentsline {subsection}{\numberline {2.3.4}Impact on Chip Design}{10}%
+\contentsline {section}{\numberline {2.4}RISC-V}{10}%
+\contentsline {subsection}{\numberline {2.4.1}The RISC-V ISA}{10}%
+\contentsline {subsection}{\numberline {2.4.2}RISC-V Cores}{10}%
+\contentsline {subsection}{\numberline {2.4.3}RISC-V Literature and Documentation}{10}%
+\contentsline {subsection}{\numberline {2.4.4}Impact on Chip Design}{10}%
+\contentsline {chapter}{\numberline {3}Approach and Execution}{11}%
+\contentsline {section}{\numberline {3.1}The Initial Plan}{11}%
+\contentsline {subsection}{\numberline {3.1.1}Overview}{11}%
+\contentsline {subsection}{\numberline {3.1.2}Software Packages Used}{11}%
+\contentsline {subsection}{\numberline {3.1.3}Hardware Packages Used}{11}%
+\contentsline {subsection}{\numberline {3.1.4}Project Plan}{11}%
+\contentsline {subsubsection}{Project Schedule and Timeline}{12}%
+\contentsline {subsection}{\numberline {3.1.5}Technology Readiness Level}{12}%
+\contentsline {subsection}{\numberline {3.1.6}Algorithm Schemes}{12}%
+\contentsline {subsection}{\numberline {3.1.7}Performance Indicators}{13}%
+\contentsline {section}{\numberline {3.2}The Outcome}{13}%
+\contentsline {subsection}{\numberline {3.2.1}Implemented}{13}%
+\contentsline {subsection}{\numberline {3.2.2}Dead ends}{13}%
+\contentsline {subsection}{\numberline {3.2.3}Unimplemented}{13}%
+\contentsline {subsection}{\numberline {3.2.4}Discarded}{13}%
+\contentsline {section}{\numberline {3.3}What Went Wrong}{13}%
+\contentsline {subsection}{\numberline {3.3.1}Assumptions Made and their effect on the Project}{14}%
+\contentsline {subsection}{\numberline {3.3.2}The Scope}{14}%
+\contentsline {subsection}{\numberline {3.3.3}Key Events}{14}%
+\contentsline {subsection}{\numberline {3.3.4}Forced Errors}{14}%
+\contentsline {subsection}{\numberline {3.3.5}Unforced Errors}{14}%
+\contentsline {subsection}{\numberline {3.3.6}Sunk Cost Fallacy}{15}%
+\contentsline {section}{\numberline {3.4}A Revised Approach}{15}%
+\contentsline {subsection}{\numberline {3.4.1}Possible Hardware}{15}%
+\contentsline {subsection}{\numberline {3.4.2}Possible Cores}{15}%
+\contentsline {subsection}{\numberline {3.4.3}Revised Timeline}{15}%
+\contentsline {subsection}{\numberline {3.4.4}TLR}{15}%
+\contentsline {subsection}{\numberline {3.4.5}Zephyr - an OS alternative}{16}%
+\contentsline {subsection}{\numberline {3.4.6}Key Approach}{16}%
+\contentsline {subsection}{\numberline {3.4.7}Refined Scope}{16}%
+\contentsline {chapter}{\numberline {4}Conclusion}{17}%
+\contentsline {chapter}{\numberline {A}Appendix}{18}%

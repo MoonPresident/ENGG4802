@@ -1,0 +1,134 @@
+
+
+\section{The Initial Plan}
+	\subsection{Overview}
+		The initial plan was to upload the RPU core onto an FPGA, confirm a basic working model, then upload an OS and start running test units.
+	
+	\subsection{Software Packages Used}
+		\textbf{VMWare} - Used to handle the virtual machine\\
+		\textbf{Ubuntu 20.4} - Used as the OS for RISC-V compilation.\\
+		\textbf{RISC-V GNU Toolchain} - To compile RISC-V code.\\
+		\textbf{Python} - For scripting and to transpile RISC-V ASM into 32 bit machine code for RPU. \\
+	
+	\subsection{Hardware Packages Used}
+		\textbf{Computer} - This project required a Vivado setup and a virtual machine to handle the RISC-V installation.\\
+		\textbf{Rice University WARP2} - Initial FPGA\\
+		\textbf{Nexys 4 DDR} - A  FPGA board was used to implement the core.
+	
+	\subsection{Project Plan}
+		%REWRITE!!!!!
+		The project milestones will mostly be marked in hardware, with hardware and firmware development being done in tandem. The goal is to develop several separate approaches (computational sprinting, heterogeneous cores and memory driven computing focusses) alone and then to test combined syntheses of these approaches, with the most promising design being using to implemented and tested on complex datasets.
+		\subsubsection{Project Schedule and Timeline}
+		
+		\begin{center}
+		\begin{tabular}{ c c }
+		August 2019 & RISC-V softcore implemented on FPGA, with running Linux Kernel.\\
+		September 2019 & Control and sensitivity testing of metrics \\ & Control data collected from Linux.\\
+		October 2019 & Begin optimisation for memory driven computing.\\
+		November 2019 & Testing basic datasets for memory driven and computational sprinting.\\
+		December 2019 & Begin work on heterogeneous cores.\\
+		February 2020 & Test basic datasets with heterogeneous cores and computational sprinting.\\
+		March 2020 & Test basic datasets on heterogeneous cores with memory driven computing.\\
+		April 2020 & Implement project as general computer with TRL of 6.\\
+		May 2020 & Poster and demonstration prepared.\\
+		June 2020 & Thesis completed and submitted.\\
+		\end{tabular}
+		\end{center}
+	
+	\subsection{Technology Readiness Level}
+		The goal is to achieve TLR 6 on the following scale.
+		%REWRITE!!!!!
+		TRL 1 – Task scheduler optimised, metrics show improvement over naïve resource allocation.\\
+		TRL 2 – Task scheduler showing clear links between target optimizations and metrics and can process basic datasets.\\
+		TRL 3 – Task scheduler can be used to process moderately complex, sanitized datasets.\\
+		TRL 4 – Task scheduler running Linux with evidence of optimisation\\
+		TRL 5 – Task scheduler, under controlled circumstance and settings, can be used as a basic general-purpose computing system, shown to work on range robust datasets.\\
+		TRL 6 – Task scheduler performing optimal resource allocation for a variety of datasets. Can be used as general use computing system.\\
+
+
+
+	\subsection{Algorithm Schemes}	
+		The initial plan was to implement a round robin scheduler, a priority queue scheduler and a hybridised scheduler, to produce diversity of data. The testing was to consist first of a Fast Fourier Transform (FFT) during the proof of concept stage, the results of which would be used as a heuristic to judge the quality of iterative improvements. After modifications had been made to the algorithms and the core, the goal was to use Dhrystone, Geekbench and CoreMark to test the quality of the different dark silicon methodologies in use.\\
+		While some of these programs have received criticism for the quality and usefulness as benchmarks, for the use of a before and after dataset, they are adequate.
+		%REWRITE!!!!!
+	
+	The Variation-Aware Core Selection and Scheduling will also be an important methodology for reducing the amount of naïve scheduling caused by abstraction away from the hardware layer [13].
+	
+	\subsection{Performance Indicators}
+	%REWRITE!!!!!
+	A basic control dataset will be produced using the RISC-V core with a basic Linux system run on the softcore. This will test for:
+	• Data Throughput\\
+	• Power and energy requirements\\
+	• Area of chip used \\
+	• Clocking Frequency\\
+	• Cycles per operation\\
+	• Quality of Resource allocation\\
+	These metrics will be used as a baseline to contrast the CPU core against as it is developed.\\
+	
+\section{The Outcome}
+	To do.
+	
+	\subsection{Implemented}
+	Placeholder to outline implemented sections of the project.
+	
+	\subsection{Dead ends}
+	Placeholder for things that were attempted but abandoned.
+	
+	\subsection{Unimplemented}
+	Placeholder for things that were not implemented
+	
+	\subsection{Discarded}
+	Placeholder for things that were discarded - may be folded together with dead end section.
+	
+\section{What Went Wrong}
+	This thesis was supposed to generate a working model of a soft core processor running an OS. This has not come to pass, and so it is important to evaluate the combination of forced and unforced errors that accumulated during this project as well as events outside of the authors control, to contextualise the timeline.
+	
+	\subsection{Assumptions Made and their effect on the Project}
+		Placeholder for list of assumptions.
+		
+	\subsection{The Scope}
+		Placeholder for a review of things in the scope of the thesis that should have been added or removed.
+	
+	\subsection{Key Events}
+		A trio of large events impacted time management and productivity during this project. The first was a medical event which negatively impacted the first semester, the second was house move that impacted the end of year holiday period and the final event was the global pandemic of COVID-19 which impacted the second semester.
+		
+	\subsection{Forced Errors}
+		A large drawback in this project was the unexpected complexity of setting up the environment. The initial hardware I was given required a specialised but depreciated environment, which took a considerable amount of time to set up first on Windows 10, and then again on a Windows 7 Virtual Machine, only to discover that the full installation would take a debilitating time to set up. My supervisor suggested a moved to an alternate piece of hardware, which resolved the issues, but by this stage several weeks were already casualties to fruitless debugging and forum based research. The new hardware had an easy environment to set up and at the end of the semester the project had a working environment, but behind schedule on additional research and implementation.\\
+		
+		
+	\subsection{Unforced Errors}
+		The holiday period was extremely dense on work and preparations for moving houses, so an assumption was made that the thesis work could be caught up with during the second semester. The unforced error here was not pushing through additional work during the holidays. While it was impossible to predict the COVID-19 pandemic, further work done during this period would have offset issues faced a later junctures. It also would have helped to discover dead ends earlier in the project, allowing for appropriate replanning.\\
+		Beginning the second semester, the plan was to catch up on additional research and spend the first several weeks streamlining the rest of the semester so a majority of the semester could be spent on thesis work, as would be required. Some progress was made in teasing out the workings of the RPU core, but a majority of work was put into preparing for the mid-late period of the semester.\\
+		The other unforced error was the choice of RPU due to its low level nature and readiness for adaptation. Choosing a harder to modify, but easy to set up processor would have been preferable, as the difficulty of implementing an OS on RPU ultimately was a massive detraction from the project.
+		
+	\subsection{Sunk Cost Fallacy}
+		During this project there were many dead ends and junctures where a choice had to be made to continue with an approach that wasn't working or abandoning lost time and finding a new approach. During the first half of the project many dead ends were hit and methods abandoned in the hope of greener pastures that never appeared. During the second half of the project, an attempt was made to stick to a single approach, based on the seemingly reasonable assumption that that method would pay off.
+	
+
+	
+\section{A Revised Approach}
+	\subsection{Possible Hardware}
+	\textbf{SiFive Board} - One of the more advanced RISC-V capable boards, these have a lot of support and a lot of pre-done implementations.
+	\textbf{ArtyS7} - This board is used and support by many RISC-V projects. Uses the same Artix-7 FPGA chip as the Nexys 4 DDR.
+	
+	\subsection{Possible Cores}
+	\textbf{VexRISC-V} - Initially dismissed because it is written in SpinalHDL, a Scala based HDL, this core seems very capable.\\
+	\textbf{AndesCore} - Initially dismissed because it is written in verilog and listed as having no OS capabilities.
+	
+	\subsection{Revised Timeline}
+	
+	\subsection{TLR}
+	Unchanged.
+	
+	\subsection{Zephyr - an OS alternative}
+	Zephyr is not listen on the RISC-V site, but is a viable OS for several RISC-V cores.
+	
+	\subsection{Key Approach}
+	Instead of trying to build upwards from a basic core up to an core running a kernel, it is advisable to start with an already working system. There is a lot of complexity to work out in this approach but it means that single core methodologies could be easily implemented and there is model to compare multicore adaptations against.
+	
+	\subsection{Refined Scope}
+	Placeholder for a refined scope for the project. Best scope would be in 2 flavours: split into a multicore approach that focusses on priority task scheduler, and a single core approach that varies the task scheduling and implements computational sprinting. 
+		
+
+
+	

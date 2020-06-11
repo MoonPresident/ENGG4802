@@ -1,0 +1,15 @@
+
+
+\section{Definition}
+	%REWRITE!!!!!
+	In modern computing, Moore's Law has been an important design consideration.\\
+	
+	Dark Silicon is the issue in modern computing where the assumptions of Moore’s Law and Dennard scaling break down. As the size of transistors reduces, we outpace our ability to cool the chips, leading to faster degradation when run for maximum performance. There is an additional energy-performance trade off, where chips cannot be powered at their maximum clock speed without exponential increases in energy requirements each generation. Alternatively, chips can use 40\% less energy, with each generation but they will no longer be able to scale performance. This has led to an era constrained by Post-Dennard scaling, where doubling the number of transistors in a chip decreases creases the percentage of these transistors that are powered on at any given time.\\
+	The clearest description available that gathers the collective issues is found in the Dark Side of Silicon, by Rahmani et al., shown in Figure 1. While it is a simple model, it covers the collection of parameters that cause the dark silicon issue. The increasing power density of modern chips, without advancement in cooling technology, slowly leads to an increasing amount of silicon that cannot be powered.
+	The term “dark silicon” refers to this silicon that is unpowered or being clocked significantly below its maximum frequency. 
+
+\section{Scope}
+	%REWRITE!!!!!
+	The research space for dark silicon stretches from material scientists designing 3D silicon architectures or new transistor designs, to firmware and software engineers optimising resource allocation on the chip for these new parameters that must now be considered. There are also hardware approaches to of dark silicon, that focus on harnessing the principles to develop different styles of chips that steers into the metaphorical curve, using techniques such as heterogeneous cores, running cores at near threshold voltages and using computational sprinting to produce high throughput while conserving energy.\\ 
+	The scope of this project is being strictly limited to what can be implemented on an FPGA. This obviously precludes all approaches related to material science. Reducing the size of the cores to combat dim silicon will not be considered as it doesn’t harness the principles of dark silicon. Dim silicon methodologies such as computational sprinting and underclocking are within the scope, but dynamic voltage scaling is not, as it requires additional modules that add a significant amount of complexity to the design and testing. Heterogeneous multicores are in scope as they represent an important way to scale up computational efficiency. CPU scheduler design methodologies and resource allocation techniques are in scope as they will be required to capitalise on the optimisation at the hardware level. Finally, an approach to computing that weaves between several of the above methods know as memory driven computing is within the scope, as it represents an important possible future in the era of dark silicon.
+
