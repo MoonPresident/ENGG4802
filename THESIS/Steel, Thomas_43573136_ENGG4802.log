@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.29)  22 JUN 2020 14:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.29)  22 JUN 2020 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -707,68 +707,75 @@ Package pdftex.def Info: assets/CompSprint.png  used on input line 76.
 <assets/Switched Sprinting.png, id=118, 667.49374pt x 541.02126pt>
 File: assets/Switched Sprinting.png Graphic file (type png)
 <use assets/Switched Sprinting.png>
-Package pdftex.def Info: assets/Switched Sprinting.png  used on input line 84.
+Package pdftex.def Info: assets/Switched Sprinting.png  used on input line 85.
 (pdftex.def)             Requested size: 226.48395pt x 183.5733pt.
-<assets/SingleSwitching.png, id=119, 672.5125pt x 493.845pt>
+ [18 <./assets/CompSprint.PNG>]
+<assets/SingleSwitching.png, id=123, 672.5125pt x 493.845pt>
 File: assets/SingleSwitching.png Graphic file (type png)
 <use assets/SingleSwitching.png>
-Package pdftex.def Info: assets/SingleSwitching.png  used on input line 92.
+Package pdftex.def Info: assets/SingleSwitching.png  used on input line 94.
 (pdftex.def)             Requested size: 226.48395pt x 166.3151pt.
- [18 <./assets/CompSprint.PNG>]
 <assets/MemDriven.png, id=124, 556.32843pt x 306.39468pt>
 File: assets/MemDriven.png Graphic file (type png)
 <use assets/MemDriven.png>
-Package pdftex.def Info: assets/MemDriven.png  used on input line 100.
+Package pdftex.def Info: assets/MemDriven.png  used on input line 103.
 (pdftex.def)             Requested size: 226.48395pt x 124.73434pt.
-<assets/HetCores.png, id=125, 550.30594pt x 308.65312pt>
+ [19 <./assets/Switched Sprinting.png (PNG copy)> <./assets/SingleSwitching.png
+ (PNG copy)>]
+<assets/HetCores.png, id=128, 550.30594pt x 308.65312pt>
 File: assets/HetCores.png Graphic file (type png)
 <use assets/HetCores.png>
-Package pdftex.def Info: assets/HetCores.png  used on input line 108.
+Package pdftex.def Info: assets/HetCores.png  used on input line 112.
 (pdftex.def)             Requested size: 226.48395pt x 127.02898pt.
-<assets/ReducedFrequencyCores.png, id=126, 574.145pt x 689.57625pt>
+<assets/ReducedFrequencyCores.png, id=129, 574.145pt x 689.57625pt>
 File: assets/ReducedFrequencyCores.png Graphic file (type png)
 <use assets/ReducedFrequencyCores.png>
 Package pdftex.def Info: assets/ReducedFrequencyCores.png  used on input line 1
-16.
+21.
 (pdftex.def)             Requested size: 226.48395pt x 272.01662pt.
-) [19 <./assets/Switched Sprinting.png (PNG copy)> <./assets/SingleSwitching.pn
-g (PNG copy)>] [20 <./assets/MemDriven.PNG> <./assets/Hetcores.PNG> <./assets/R
-educedFrequencyCores.png (PNG copy)>]
+) [20 <./assets/MemDriven.PNG> <./assets/Hetcores.PNG>] [21 <./assets/ReducedFr
+equencyCores.png (PNG copy)>]
 Chapter 4.
-(./chapters/Results.tex [21
+(./chapters/Results.tex [22
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 27--28
 
  []
 
-[22] [23] [24]) [25]
+[23] [24] [25]) [26]
 Chapter 5.
-(./chapters/Conclusion.tex) [26
+(./chapters/Conclusion.tex) [27
 
 ]
 Appendix A.
-[27
+
+Overfull \hbox (142.66364pt too wide) in paragraph at lines 141--144
+\T1/lmr/m/n/12 All ap-pendix ma-te-rial is con-tained in the fol-low-ing github
+ repos-i-tory. https://github.com/MoonPresident/ENGG4802 
+ []
+
+[28
 
 ]
-Overfull \hbox (0.31526pt too wide) in paragraph at lines 146--146
+Overfull \hbox (0.31526pt too wide) in paragraph at lines 147--147
 []\T1/lmr/m/n/12 R. Den-nard, V. L. Ride-out, E. Bas-sous, and A. R. LeBlanc, `
 `De-sign of ion-implanted
  []
 
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-45.
+46.
 (c:/Apps/texlive/2019/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [28
+) [29
 
-]
-Overfull \hbox (9.08527pt too wide) in paragraph at lines 146--146
+] [30]
+Overfull \hbox (9.08527pt too wide) in paragraph at lines 147--147
 \T1/lmr/m/n/12 [On-line]. Avail-able: $\T1/lmtt/m/n/12 https : / / warpproject 
 . org / trac / wiki / HardwareUsersGuides /
  []
 
-[29] [30] (./Steel, Thomas_43573136_ENGG4802.aux (./chapters/Declaration.aux))
+[31] (./Steel, Thomas_43573136_ENGG4802.aux (./chapters/Declaration.aux))
 Package logreq Info: Writing requests to '"Steel, Thomas_43573136_ENGG4802".run
 .xml'.
 \openout1 = `"Steel, Thomas_43573136_ENGG4802.run.xml"'.
@@ -781,7 +788,7 @@ Here is how much of TeX's memory you used:
  25350 multiletter control sequences out of 15000+600000
  589286 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,11n,46p,1551b,1231s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,11n,46p,1551b,1229s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Apps/texlive/2019/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Apps/texliv
 e/2019/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Apps/texlive/2019/texmf-
 dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Apps/texlive/2019/texmf-dist/fonts/enc/d
@@ -797,11 +804,11 @@ texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Apps/texlive/2019/texmf-dist/font
 s/type1/public/lm/lmri12.pfb><c:/Apps/texlive/2019/texmf-dist/fonts/type1/publi
 c/lm/lmsy10.pfb><c:/Apps/texlive/2019/texmf-dist/fonts/type1/public/lm/lmsy8.pf
 b><c:/Apps/texlive/2019/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on "Steel, Thomas_43573136_ENGG4802.pdf" (41 pages, 917870 bytes
+Output written on "Steel, Thomas_43573136_ENGG4802.pdf" (42 pages, 920194 bytes
 ).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 140 compressed objects within 2 object streams
+ 222 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

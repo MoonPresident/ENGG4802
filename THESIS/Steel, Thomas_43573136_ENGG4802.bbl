@@ -398,52 +398,6 @@
       \field{pages}{8\bibrangedash 19}
       \range{pages}{12}
     \endentry
-    \entry{DVS}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=95ce34bb49f41266403a41f8d83d2201}{%
-           family={Chow},
-           familyi={C\bibinitperiod},
-           given={C.\bibnamedelimi T.},
-           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
-        {{hash=5e9eaa8d010713875695b3a0f87d78ad}{%
-           family={Tsui},
-           familyi={T\bibinitperiod},
-           given={L.\bibnamedelimi S.\bibnamedelimi M.},
-           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
-        {{hash=261fd486424680b7933f0c9464eb0dd7}{%
-           family={Leong},
-           familyi={L\bibinitperiod},
-           given={P.\bibnamedelimi H.\bibnamedelimi W.},
-           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
-        {{hash=bed286988fcd3f85f555529b768a19d7}{%
-           family={Luk},
-           familyi={L\bibinitperiod},
-           given={W.},
-           giveni={W\bibinitperiod}}}%
-        {{hash=b7ca15de8507cc42cabdfb1b263ca089}{%
-           family={Wilton},
-           familyi={W\bibinitperiod},
-           given={S.\bibnamedelimi J.\bibnamedelimi E.},
-           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Singapore}%
-      }
-      \strng{namehash}{dfa01aba2fcf7ab8ded5a83eefcb3e49}
-      \strng{fullhash}{34795407c256329be00f4fb07158bdb4}
-      \strng{bibnamehash}{34795407c256329be00f4fb07158bdb4}
-      \strng{authorbibnamehash}{34795407c256329be00f4fb07158bdb4}
-      \strng{authornamehash}{dfa01aba2fcf7ab8ded5a83eefcb3e49}
-      \strng{authorfullhash}{34795407c256329be00f4fb07158bdb4}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eventtitle}{IEEE International Conference on Field-Programmable Technology}
-      \field{title}{Dynamic Voltage Scaling for Commercial FPGAs}
-      \field{year}{2005}
-      \true{nocite}
-    \endentry
     \entry{ComputationalSprinting}{article}{}
       \name{author}{7}{}{%
         {{hash=5f84a8011fb90bddf7a164a5d719a20d}{%
@@ -501,6 +455,52 @@
       \field{pages}{20\bibrangedash 28}
       \range{pages}{9}
     \endentry
+    \entry{DVS}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=95ce34bb49f41266403a41f8d83d2201}{%
+           family={Chow},
+           familyi={C\bibinitperiod},
+           given={C.\bibnamedelimi T.},
+           giveni={C\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=5e9eaa8d010713875695b3a0f87d78ad}{%
+           family={Tsui},
+           familyi={T\bibinitperiod},
+           given={L.\bibnamedelimi S.\bibnamedelimi M.},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=261fd486424680b7933f0c9464eb0dd7}{%
+           family={Leong},
+           familyi={L\bibinitperiod},
+           given={P.\bibnamedelimi H.\bibnamedelimi W.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=bed286988fcd3f85f555529b768a19d7}{%
+           family={Luk},
+           familyi={L\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+        {{hash=b7ca15de8507cc42cabdfb1b263ca089}{%
+           family={Wilton},
+           familyi={W\bibinitperiod},
+           given={S.\bibnamedelimi J.\bibnamedelimi E.},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Singapore}%
+      }
+      \strng{namehash}{dfa01aba2fcf7ab8ded5a83eefcb3e49}
+      \strng{fullhash}{34795407c256329be00f4fb07158bdb4}
+      \strng{bibnamehash}{34795407c256329be00f4fb07158bdb4}
+      \strng{authorbibnamehash}{34795407c256329be00f4fb07158bdb4}
+      \strng{authornamehash}{dfa01aba2fcf7ab8ded5a83eefcb3e49}
+      \strng{authorfullhash}{34795407c256329be00f4fb07158bdb4}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eventtitle}{IEEE International Conference on Field-Programmable Technology}
+      \field{title}{Dynamic Voltage Scaling for Commercial FPGAs}
+      \field{year}{2005}
+      \true{nocite}
+    \endentry
     \entry{EndOfMooresLawWilliams}{article}{}
       \name{author}{1}{}{%
         {{hash=2d8031cadd5b44a882fb34aa55f3e1f0}{%
@@ -527,47 +527,6 @@
       \true{nocite}
       \field{pages}{7\bibrangedash 13}
       \range{pages}{7}
-    \endentry
-    \entry{HeterogenousCoreDesign}{inbook}{}
-      \name{author}{3}{}{%
-        {{hash=3d68da0f64c5a4d1b7f9e7b62db9da77}{%
-           family={Garg},
-           familyi={G\bibinitperiod},
-           given={S.},
-           giveni={S\bibinitperiod}}}%
-        {{hash=4f2a018fa15ebb0aa58498adbbd88780}{%
-           family={Turakhia},
-           familyi={T\bibinitperiod},
-           given={Y.},
-           giveni={Y\bibinitperiod}}}%
-        {{hash=748ca8552f76dced1324717a78d68897}{%
-           family={Marculescu},
-           familyi={M\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Stockholm}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{2626c6e11697a207251dd63b1694415a}
-      \strng{fullhash}{2626c6e11697a207251dd63b1694415a}
-      \strng{bibnamehash}{2626c6e11697a207251dd63b1694415a}
-      \strng{authorbibnamehash}{2626c6e11697a207251dd63b1694415a}
-      \strng{authornamehash}{2626c6e11697a207251dd63b1694415a}
-      \strng{authorfullhash}{2626c6e11697a207251dd63b1694415a}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{The Dark Side of Silicon}
-      \field{title}{Heterogeneous Dark Silicon Chip Multi-Processors: Design and Run-Time Management}
-      \field{year}{2017}
-      \true{nocite}
-      \field{pages}{95\bibrangedash 122}
-      \range{pages}{28}
     \endentry
     \entry{SiLagoSolution}{inbook}{}
       \name{author}{5}{}{%
@@ -708,6 +667,135 @@
       \field{pages}{261\bibrangedash 314}
       \range{pages}{54}
     \endentry
+    \entry{HeterogenousCoreDesign}{inbook}{}
+      \name{author}{3}{}{%
+        {{hash=3d68da0f64c5a4d1b7f9e7b62db9da77}{%
+           family={Garg},
+           familyi={G\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=4f2a018fa15ebb0aa58498adbbd88780}{%
+           family={Turakhia},
+           familyi={T\bibinitperiod},
+           given={Y.},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=748ca8552f76dced1324717a78d68897}{%
+           family={Marculescu},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Stockholm}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{2626c6e11697a207251dd63b1694415a}
+      \strng{fullhash}{2626c6e11697a207251dd63b1694415a}
+      \strng{bibnamehash}{2626c6e11697a207251dd63b1694415a}
+      \strng{authorbibnamehash}{2626c6e11697a207251dd63b1694415a}
+      \strng{authornamehash}{2626c6e11697a207251dd63b1694415a}
+      \strng{authorfullhash}{2626c6e11697a207251dd63b1694415a}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{The Dark Side of Silicon}
+      \field{title}{Heterogeneous Dark Silicon Chip Multi-Processors: Design and Run-Time Management}
+      \field{year}{2017}
+      \true{nocite}
+      \field{pages}{95\bibrangedash 122}
+      \range{pages}{28}
+    \endentry
+    \entry{HotspotsInDie}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=c33641e67eeaefc87b7821dc9b51ff90}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=76a412aeaff82c6d93c315b029f83f26}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Fu-Yuan},
+           giveni={F\bibinithyphendelim Y\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=c089138c2bd27e7a7a2c47945fe7878a}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Ran},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{fullhash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{bibnamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{authorbibnamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{authornamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{authorfullhash}{cd1f65253b3829c3e4d2398ae54fcd66}
+      \strng{editorbibnamehash}{c089138c2bd27e7a7a2c47945fe7878a}
+      \strng{editornamehash}{c089138c2bd27e7a7a2c47945fe7878a}
+      \strng{editorfullhash}{c089138c2bd27e7a7a2c47945fe7878a}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Owing to the increasing core frequency and chip integration and the limited die dimension, the power densities in CPU chip have been increasing fastly. The high temperature on chip resulted by power densities threats the processor's performance and chip's reliability. This paper analyzed the thermal hotspots in die and their properties. A new architecture of function units in die ---- hot units distributed architecture is suggested to cope with the problems of high power densities for future processor chip.}
+      \field{booktitle}{Intelligent Computing and Information Science}
+      \field{isbn}{978-3-642-18129-0}
+      \field{title}{Thermal Hotspots in CPU Die and It's Future Architecture}
+      \field{year}{2011}
+      \true{nocite}
+      \field{pages}{180\bibrangedash 185}
+      \range{pages}{6}
+    \endentry
+    \entry{Bar-CohenAvram2012Tmoo}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4899980a9121f635da40867e53feb21d}{%
+           family={Bar-Cohen},
+           familyi={B\bibinithyphendelim C\bibinitperiod},
+           given={Avram},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c26cc02bbb5db725a2c79cb200894d76}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {English}%
+      }
+      \list{publisher}{1}{%
+        {American Society of Mechanical Engineers}%
+      }
+      \strng{namehash}{2a96093fe0056659149deabaf2195dda}
+      \strng{fullhash}{2a96093fe0056659149deabaf2195dda}
+      \strng{bibnamehash}{2a96093fe0056659149deabaf2195dda}
+      \strng{authorbibnamehash}{2a96093fe0056659149deabaf2195dda}
+      \strng{authornamehash}{2a96093fe0056659149deabaf2195dda}
+      \strng{authorfullhash}{2a96093fe0056659149deabaf2195dda}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0022-1481}
+      \field{journaltitle}{Journal of Heat Transfer}
+      \field{number}{5}
+      \field{title}{Thermal management of on-chip hot spot.(Report)}
+      \field{volume}{134}
+      \field{year}{2012}
+      \true{nocite}
+      \field{pages}{051017\bibrangedash 1-051017-11}
+      \range{pages}{-1}
+      \keyw{Complementary Metal Oxide Semiconductors -- Technology Application ; Cooling Systems -- Innovations ; Electrical Resistance -- Measurement ; Fourier Transforms -- Usage ; Integrated Circuits -- Usage}
+    \endentry
     \entry{ThermalAwareDesign}{inproceedings}{}
       \name{author}{2}{}{%
         {{hash=f2b6be23e9b6fe20df4c70c28f8215ba}{%
@@ -786,14 +874,64 @@
       \strng{authorbibnamehash}{c854d4a1c0e1ac9db948938c754cace3}
       \strng{authornamehash}{8b3dce4a3c3f71834e880cf396c0053a}
       \strng{authorfullhash}{c854d4a1c0e1ac9db948938c754cace3}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{eventtitle}{International Conference on hardware/software codesign and system synthesis}
       \field{title}{TSP: thermal safe power: efficient power budgetting for many-core systems in dark silicon}
       \field{year}{2014}
       \true{nocite}
+    \endentry
+    \entry{riscvUnprivIsa}{manual}{}
+      \list{organization}{1}{%
+        {University of California, Berkeley}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{title}{The RISC-V Instruction Set Manual Volume I: Unpriviledged ISA}
+      \field{year}{2019}
+      \true{nocite}
+    \endentry
+    \entry{riscvPrivIsa}{manual}{}
+      \list{organization}{1}{%
+        {University of California, Berkeley}%
+      }
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labeltitlesource}{title}
+      \field{title}{The RISC-V Instruction Set Manual Volume II: Priviledged ISA}
+      \field{year}{2019}
+      \true{nocite}
+    \endentry
+    \entry{riscvCores}{online}{}
+      \name{author}{1}{}{%
+        {{hash=9c546156b47858c21c73c22b7f3fff43}{%
+           family={International},
+           familyi={I\bibinitperiod},
+           given={RISC-V},
+           giveni={R\bibinithyphendelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c546156b47858c21c73c22b7f3fff43}
+      \strng{fullhash}{9c546156b47858c21c73c22b7f3fff43}
+      \strng{bibnamehash}{9c546156b47858c21c73c22b7f3fff43}
+      \strng{authorbibnamehash}{9c546156b47858c21c73c22b7f3fff43}
+      \strng{authornamehash}{9c546156b47858c21c73c22b7f3fff43}
+      \strng{authorfullhash}{9c546156b47858c21c73c22b7f3fff43}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{RISC-V Cores}
+      \field{year}{2020}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://riscv.org/risc-v-cores/
+      \endverb
+      \verb{url}
+      \verb https://riscv.org/risc-v-cores/
+      \endverb
     \endentry
     \entry{SchedulingDarkSilicon}{thesis}{}
       \name{author}{1}{}{%
@@ -815,8 +953,8 @@
       \strng{authorbibnamehash}{4c2b5447371dab2b95248fe6aa429f22}
       \strng{authornamehash}{4c2b5447371dab2b95248fe6aa429f22}
       \strng{authorfullhash}{4c2b5447371dab2b95248fe6aa429f22}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Scheduling Dark Silicon}
@@ -918,116 +1056,6 @@
       \field{pages}{1\bibrangedash 294}
       \range{pages}{294}
     \endentry
-    \entry{Bar-CohenAvram2012Tmoo}{article}{}
-      \name{author}{2}{}{%
-        {{hash=4899980a9121f635da40867e53feb21d}{%
-           family={Bar-Cohen},
-           familyi={B\bibinithyphendelim C\bibinitperiod},
-           given={Avram},
-           giveni={A\bibinitperiod}}}%
-        {{hash=c26cc02bbb5db725a2c79cb200894d76}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Peng},
-           giveni={P\bibinitperiod}}}%
-      }
-      \list{language}{1}{%
-        {English}%
-      }
-      \list{publisher}{1}{%
-        {American Society of Mechanical Engineers}%
-      }
-      \strng{namehash}{2a96093fe0056659149deabaf2195dda}
-      \strng{fullhash}{2a96093fe0056659149deabaf2195dda}
-      \strng{bibnamehash}{2a96093fe0056659149deabaf2195dda}
-      \strng{authorbibnamehash}{2a96093fe0056659149deabaf2195dda}
-      \strng{authornamehash}{2a96093fe0056659149deabaf2195dda}
-      \strng{authorfullhash}{2a96093fe0056659149deabaf2195dda}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{0022-1481}
-      \field{journaltitle}{Journal of Heat Transfer}
-      \field{number}{5}
-      \field{title}{Thermal management of on-chip hot spot.(Report)}
-      \field{volume}{134}
-      \field{year}{2012}
-      \true{nocite}
-      \field{pages}{051017\bibrangedash 1-051017-11}
-      \range{pages}{-1}
-      \keyw{Complementary Metal Oxide Semiconductors -- Technology Application ; Cooling Systems -- Innovations ; Electrical Resistance -- Measurement ; Fourier Transforms -- Usage ; Integrated Circuits -- Usage}
-    \endentry
-    \entry{HotspotsInDie}{inproceedings}{}
-      \name{author}{2}{}{%
-        {{hash=c33641e67eeaefc87b7821dc9b51ff90}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={Jian},
-           giveni={J\bibinitperiod}}}%
-        {{hash=76a412aeaff82c6d93c315b029f83f26}{%
-           family={Hu},
-           familyi={H\bibinitperiod},
-           given={Fu-Yuan},
-           giveni={F\bibinithyphendelim Y\bibinitperiod}}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=c089138c2bd27e7a7a2c47945fe7878a}{%
-           family={Chen},
-           familyi={C\bibinitperiod},
-           given={Ran},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Berlin, Heidelberg}%
-      }
-      \list{publisher}{1}{%
-        {Springer Berlin Heidelberg}%
-      }
-      \strng{namehash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{fullhash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{bibnamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{authorbibnamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{authornamehash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{authorfullhash}{cd1f65253b3829c3e4d2398ae54fcd66}
-      \strng{editorbibnamehash}{c089138c2bd27e7a7a2c47945fe7878a}
-      \strng{editornamehash}{c089138c2bd27e7a7a2c47945fe7878a}
-      \strng{editorfullhash}{c089138c2bd27e7a7a2c47945fe7878a}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Owing to the increasing core frequency and chip integration and the limited die dimension, the power densities in CPU chip have been increasing fastly. The high temperature on chip resulted by power densities threats the processor's performance and chip's reliability. This paper analyzed the thermal hotspots in die and their properties. A new architecture of function units in die ---- hot units distributed architecture is suggested to cope with the problems of high power densities for future processor chip.}
-      \field{booktitle}{Intelligent Computing and Information Science}
-      \field{isbn}{978-3-642-18129-0}
-      \field{title}{Thermal Hotspots in CPU Die and It's Future Architecture}
-      \field{year}{2011}
-      \true{nocite}
-      \field{pages}{180\bibrangedash 185}
-      \range{pages}{6}
-    \endentry
-    \entry{riscvUnprivIsa}{manual}{}
-      \list{organization}{1}{%
-        {University of California, Berkeley}%
-      }
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labeltitlesource}{title}
-      \field{title}{The RISC-V Instruction Set Manual Volume I: Unpriviledged ISA}
-      \field{year}{2019}
-      \true{nocite}
-    \endentry
-    \entry{riscvPrivIsa}{manual}{}
-      \list{organization}{1}{%
-        {University of California, Berkeley}%
-      }
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labeltitlesource}{title}
-      \field{title}{The RISC-V Instruction Set Manual Volume II: Priviledged ISA}
-      \field{year}{2019}
-      \true{nocite}
-    \endentry
     \entry{ShinJun2015TDfS}{misc}{}
       \name{author}{1}{}{%
         {{hash=86629dd182118e44a2ba2e03b2698502}{%
@@ -1060,34 +1088,6 @@
       \verb http://search.proquest.com/docview/1699285925/
       \endverb
       \keyw{Computer Engineering ; Electrical Engineering ; Computer Science ; Computer Engineering ; Electrical Engineering ; Computer Science ; Applied Sciences ; Computer Vision ; Image Processing ; Interconnect Routing ; Temperature ; Thermal Profile ; Thermal Sensors}
-    \endentry
-    \entry{riscvCores}{online}{}
-      \name{author}{1}{}{%
-        {{hash=9c546156b47858c21c73c22b7f3fff43}{%
-           family={International},
-           familyi={I\bibinitperiod},
-           given={RISC-V},
-           giveni={R\bibinithyphendelim V\bibinitperiod}}}%
-      }
-      \strng{namehash}{9c546156b47858c21c73c22b7f3fff43}
-      \strng{fullhash}{9c546156b47858c21c73c22b7f3fff43}
-      \strng{bibnamehash}{9c546156b47858c21c73c22b7f3fff43}
-      \strng{authorbibnamehash}{9c546156b47858c21c73c22b7f3fff43}
-      \strng{authornamehash}{9c546156b47858c21c73c22b7f3fff43}
-      \strng{authorfullhash}{9c546156b47858c21c73c22b7f3fff43}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{RISC-V Cores}
-      \field{year}{2020}
-      \true{nocite}
-      \verb{urlraw}
-      \verb https://riscv.org/risc-v-cores/
-      \endverb
-      \verb{url}
-      \verb https://riscv.org/risc-v-cores/
-      \endverb
     \endentry
     \entry{LiMengquan2018CTOf}{article}{}
       \name{author}{5}{}{%

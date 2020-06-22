@@ -74,46 +74,46 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Single Threading Switching}{19}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.2}Memory Driven Computing}{19}%
+\contentsline {subsection}{\numberline {3.2.2}Memory Driven Computing}{20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.3}Heterogeneous CoreS}{19}%
+\contentsline {subsection}{\numberline {3.2.3}Heterogeneous Cores}{20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Reduced Frequency Cores}{19}%
+\contentsline {subsubsection}{Reduced Frequency Cores}{20}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Results}{21}%
+\contentsline {chapter}{\numberline {4}Results}{22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}The Outcome}{21}%
+\contentsline {section}{\numberline {4.1}The Outcome}{22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}What Went Wrong}{21}%
+\contentsline {section}{\numberline {4.2}What Went Wrong}{22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}The Scope}{21}%
+\contentsline {subsection}{\numberline {4.2.1}The Scope}{22}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Assumptions}{22}%
+\contentsline {subsection}{\numberline {4.2.2}Assumptions}{23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.3}Key Events}{22}%
+\contentsline {subsection}{\numberline {4.2.3}Key Events}{23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.4}Forced Errors}{22}%
+\contentsline {subsection}{\numberline {4.2.4}Forced Errors}{23}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.5}Unforced Errors}{23}%
+\contentsline {subsection}{\numberline {4.2.5}Unforced Errors}{24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.6}Sunk Cost Fallacy}{23}%
+\contentsline {subsection}{\numberline {4.2.6}Sunk Cost Fallacy}{24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}A Revised Approach}{23}%
+\contentsline {section}{\numberline {4.3}A Revised Approach}{24}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.1}Possible Hardware}{24}%
+\contentsline {subsection}{\numberline {4.3.1}Possible Hardware}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.2}Possible Cores}{24}%
+\contentsline {subsection}{\numberline {4.3.2}Possible Cores}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.3}Revised Timeline}{24}%
+\contentsline {subsection}{\numberline {4.3.3}Revised Timeline}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.4}TLR}{24}%
+\contentsline {subsection}{\numberline {4.3.4}TLR}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.5}Zephyr - an OS alternative}{24}%
+\contentsline {subsection}{\numberline {4.3.5}Zephyr - an OS alternative}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.6}Key Approach}{24}%
+\contentsline {subsection}{\numberline {4.3.6}Key Approach}{25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3.7}Refined Scope}{25}%
+\contentsline {subsection}{\numberline {4.3.7}Refined Scope}{26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Conclusion}{26}%
+\contentsline {chapter}{\numberline {5}Conclusion}{27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Appendix}{27}%
+\contentsline {chapter}{\numberline {A}Appendix}{28}%

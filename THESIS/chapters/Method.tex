@@ -69,7 +69,7 @@
 	
 \section{Implementation Designs}
 	\subsection{Computational Sprinting}
-		The computational sprinting design will vary a prescaler at set intervals. The setup for this is displayed in 
+		The computational sprinting design will vary a prescaler at set intervals. The setup for this is displayed in Figure~\ref{CompSprint}.
 	
 	\begin{figure}
 		\centering
@@ -79,6 +79,7 @@
 	\end{figure}
 	
 	\subsubsection{Sprint Switching}
+		A subsection of the computation sprinting design would be to consider a sprint switching design. This methodology considers the tendency of hotspots to build around cores. Implementing hotspot management techniques would be ideal for this project, but this method  mostly relies on switching which core is sprinting at any given point in time, so that the total energy in the system stays consistent and hotspots don't overlap.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{Switched Sprinting.png}
@@ -87,6 +88,7 @@
 	\end{figure}
 	
 	\subsubsection{Single Threading Switching}
+		A single threaded variant on sprint switching would involve connecting the registers of multiple cores so a core can be sprinted,and when that core becomes too hot, the register values are pushed over to another core, which is then sprinted. The precise method of joining cores would need to be designed to reduce interconnect size. 
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{SingleSwitching.png}
@@ -95,6 +97,7 @@
 	\end{figure}
 
 	\subsection{Memory Driven Computing}
+	The memory driven computing implementation would involve placing memory around and between the different cores, as displayed in Figure~\ref{MemDriven}.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{MemDriven.png}
@@ -102,7 +105,8 @@
 		\label{MemDriven}
 	\end{figure}
 
-	\subsection{Heterogeneous CoreS}
+	\subsection{Heterogeneous Cores}
+	The heterogeneous core implementation would involve tying multiple cores together with the main controlling core linking them together as shown in Figure~\ref{HetCores}.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{HetCores.png}
@@ -111,6 +115,7 @@
 	\end{figure}
 
 	\subsubsection{Reduced Frequency Cores}
+	A variant on the heterogeneous core design methodology would be to use cores that vary by their critical path length. Reducing the maximum clocking frequency of a core reduces the maximum critical path. Using smaller transistors, and taking advantage of the increase area budgets of dark silicon chips, an increased critical path could allow the number of pipelining stages to be reduced. If this can be done in a way that doesn't sacrifice performance, this could be a valuable way to exploit the loosened area constraints. This can also allow cores to be chosen based on how conducive they are to different levels of pipelining.
 	\begin{figure}
 		\centering
 		\includegraphics[width=0.5\textwidth]{ReducedFrequencyCores.png}
