@@ -1,0 +1,65 @@
+\section{The Outcome}
+	Throughout this project, the author has:
+	\begin{itemize}
+		\item Developed extensive knowledge of the world of RISC-V softcores.
+		\item Learnt the finer points of the RISC-V ISA.
+		\item Developed a basic RISC-V ASM to Machine code transpiler in python.
+		\item Discovered a variety of ways to not implement an OS on a RISC-V system.
+	\end{itemize}
+
+	Unfortunately, aside from implementing the CPU on an FPGA, no other results were produced for this project.
+	
+\section{What Went Wrong}
+	This thesis was supposed to generate a working model of a soft core processor running an OS. This has not come to pass, and so it is important to evaluate the combination of forced and unforced errors that accumulated during this project as well as events outside of the authors control, to contextualise the timeline.
+		
+	\subsection{The Scope}
+		Setting hardware modification as the goal of this project may have been a mistake. While it is possible to get an OS running on a RISC-V machine with relative ease, this is only for set machines, none of which existed in a language the author was familiar with. A Venn diagram of ease to modify on a hardware level and ease to implement an OS on the softcore may overlap, but they do no overlap in the realm of VHDL. The broad scope of the project meant that research focus had to cast a wide net to find methods to cover a multitude of factors and approaches, and so the specific implementation was glossed over in the early phases, based on a satisfaction that OS implementation was a known possibility.
+		
+	\subsection{Assumptions}
+		Two reasonable assumptions to make are that modifying a softcore CPU is a complicated process, and that implementing an OS on a softcore CPU could be a complicated process. The flawed assumption made in this project was that uploading an OS onto a softcore CPU would be relatively easy, and worthwhile if it allowed the use of an easier to modify softcore CPU. RPU had no implemented OS at the beginning of this project, but was easier to use and understand that other VHDL cores that were considered. Uploading an OS onto the RPU core turned out to be a more difficult experience than had been initially expected, however additional disruptions that were unrelated to the projects scope make it hard to say whether this would have had as much of a negative effect on the project had there been more time to approach the problem.
+		
+		It was also assumed that picking a core in a known language would be preferable to picking a core in an unknown language. While this is typically the case, a new conclusion has been drawn that if the task is more complicated than the new language is, learning a new language should not be a constraint in tool selection.
+	
+	\subsection{Key Events}
+		A trio of large events impacted time management and productivity during this project. The first was a medical event which negatively impacted the first semester, the second was house move that impacted the end of year holiday period and the final event was the global pandemic of COVID-19 which impacted the second semester.
+		
+	\subsection{Forced Errors}
+		A large drawback in this project was the unexpected complexity of setting up the environment. The initial hardware I was given required a specialised but depreciated environment, which took a considerable amount of time to set up first on Windows 10, and then again on a Windows 7 Virtual Machine, only to discover that the full installation would take a debilitating time to set up. My supervisor suggested a moved to an alternate piece of hardware, which resolved the issues, but by this stage several weeks were already casualties to fruitless debugging and forum based research. The new hardware had an easy environment to set up and at the end of the semester the project had a working environment, but behind schedule on additional research and implementation.\\
+		
+		
+	\subsection{Unforced Errors}
+		The holiday period was extremely dense on work and preparations for moving houses, so an assumption was made that the thesis work could be caught up with during the second semester. The unforced error here was not pushing through additional work during the holidays. While it was impossible to predict the COVID-19 pandemic, further work done during this period would have offset issues faced a later junctures. It also would have helped to discover dead ends earlier in the project, allowing for appropriate replanning.\\
+		Beginning the second semester, the plan was to catch up on additional research and spend the first several weeks streamlining the rest of the semester so a majority of the semester could be spent on thesis work, as would be required. Some progress was made in teasing out the workings of the RPU core, but a majority of work was put into preparing for the mid-late period of the semester.\\
+		The other unforced error was the choice of RPU due to its low level nature and readiness for adaptation. Choosing a harder to modify, but easy to set up processor would have been preferable, as the difficulty of implementing an OS on RPU ultimately was a massive detraction from the project.
+		
+	\subsection{Sunk Cost Fallacy}
+		During this project there were many dead ends and junctures where a choice had to be made to continue with an approach that wasn't working or abandoning lost time and finding a new approach. During the first half of the project many dead ends were hit and methods abandoned in the hope of greener pastures that never appeared. During the second half of the project, an attempt was made to stick to a single approach, based on the seemingly reasonable assumption that that method would pay off.
+	
+
+	
+\section{A Revised Approach}
+	With the 20/20 vision of hindsight, a different approach should be taken to this project. Preferable, more specialised hardware should be sourced, as the RISC-V space tends to lend itself most to specific hardware, in part because this hardware helps to break the environment choice out from Vivado. Vivado is an excellent FPGA environment, but not necessarily the best environment for RISC-V development. Different cores should be considered, with less of a language based limitation. If hardware modification is the goal, the best approach to take on this project would be to start with a functioning OS with easy to modify scheduling software, such that the OS and the scheduling software are parameters in the data generation, but not complexity in the methodology. The hardware design itself presents a broad range of complexities.
+	
+	\subsection{Possible Hardware}
+	\textbf{SiFive Board} - One of the more advanced RISC-V capable boards, these have a lot of support and a lot of pre-done implementations.
+	\textbf{ArtyS7} - This board is used and support by many RISC-V projects. Uses the same Artix-7 FPGA chip as the Nexys 4 DDR.
+	SiFive are involved in writing the RISC-V ISA specifications, and so their environment is specially made to work with RISC-V cores. The ArtyS7 uses the Vivado environment, but is an extremely popular board with RISC-V implementers, and so should be considered for ease of implementation.
+	
+	\subsection{Possible Cores}
+	\textbf{VexRISC-V} - Initially dismissed because it is written in SpinalHDL, a Scala based HDL, this core seems very capable.\\
+	\textbf{AndesCore} - Initially dismissed because it is written in verilog and listed as having no OS capabilities.
+	
+	\subsection{Revised Timeline}
+	
+	\subsection{TLR}
+	Unchanged.
+	
+	\subsection{Zephyr - an OS alternative}
+	Zephyr is not listen on the RISC-V site, but is a viable OS for several RISC-V cores. This core is of particular interest as in mid-May, Domipheus, the author of RPU, implemented this OS onto RPU. Unfortunately he did not leave any guide on how to replicate this, and on request for further information, revealed that the OS needed to be partially rewritten due to the fact that RPU lacked the multiplication extension. 
+	
+	\subsection{Key Approach}
+	Instead of trying to build upwards from a basic core up to an core running a kernel, it is advisable to start with an already working system. There is a lot of complexity to work out in this approach but it means that single core methodologies could be easily implemented and there is model to compare multicore adaptations against.
+	
+	\subsection{Refined Scope}
+	Placeholder for a refined scope for the project. Best scope would be in 2 flavours: split into a multicore approach that focusses on priority task scheduler, and a single core approach that varies the task scheduling and implements computational sprinting. 
+		

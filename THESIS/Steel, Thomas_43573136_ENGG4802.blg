@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'Steel, Thomas_43573136_ENGG4802.blg'
+[100] biber-MSWIN32:322> INFO - === 
+[121] Biber.pm:415> INFO - Reading 'Steel, Thomas_43573136_ENGG4802.bcf'
+[306] Biber.pm:940> INFO - Using all citekeys in bib section 0
+[332] Biber.pm:4256> INFO - Processing section 0
+[333] Utils.pm:75> INFO - Globbing data source 'DarkSilicon.bib'
+[345] Utils.pm:91> INFO - Globbed data source 'DarkSilicon.bib' to DarkSilicon.bib
+[361] Biber.pm:4455> INFO - Looking for bibtex format file 'DarkSilicon.bib' for section 0
+[365] bibtex.pm:1653> INFO - LaTeX decoding ...
+[436] bibtex.pm:1471> INFO - Found BibTeX data source 'DarkSilicon.bib'
+[690] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[690] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[690] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[690] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[728] bbl.pm:652> INFO - Writing 'Steel, Thomas_43573136_ENGG4802.bbl' with encoding 'UTF-8'
+[752] bbl.pm:755> INFO - Output to Steel, Thomas_43573136_ENGG4802.bbl

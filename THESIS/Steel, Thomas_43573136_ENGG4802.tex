@@ -1,0 +1,146 @@
+
+%Begin by setting up the document
+\documentclass[a4paper,12pt]{report}
+\usepackage[margin=1in]{geometry}
+
+
+%quickly checks for syntax errors
+\usepackage{syntonly}
+%comment this out to make the pdf
+%\syntaxonly
+
+%For referencing in IEEE style:
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[
+	style=ieee,
+	backend=biber,
+	sorting=none
+]{biblatex}
+\addbibresource{DarkSilicon.bib}
+
+\usepackage{notoccite}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\graphicspath{ {assets/} }
+
+%headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\fancyhead{}
+\fancyhead[RO,LE]{Optimising a RISC-V Task Scheduler for Dark Silicon Parameters}
+\fancyfoot{}
+\fancyfoot[CO,RE]{\thepage}
+\fancyfoot[LO,CE]{Chapter \thechapter}
+\fancyfoot[LE,RO]{Thomas Steel}
+
+%Get 1.5 spacing, use linespread which has a 1.2 multiplier (1.2 * 1.25 = 1.5), though other sources suggest 1.3
+\linespread{1.3}
+
+%Prepare title
+\author{Thomas Steel - 43573136\\
+	Department of Electrical and Computer Engineering,\\University of Queensland\\
+	\\
+	\\
+	\\
+	Submitted for the degree of\\
+	Bachelor of Engineering(Honours)\\
+	in the division of
+}
+\title{
+	\includegraphics[width=\textwidth]{PNGlogo.png}~\\[1cm]
+	Optimising a RISC-V Task Scheduler for Dark Silicon Parameters
+}
+%\pagestyle{style}
+%\thispagestyle{style}
+
+
+
+%for big projects, split by using \include{filename}
+%this command allows you to inline the file.
+%can cherry pick using \includeonly{filename,filename,...}
+
+\begin{document}
+	\pagenumbering{Roman}
+	
+	%Adding \thispagestyle{empty} supresses headers and footers temporarily. 
+	\maketitle
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\thispagestyle{empty}
+	%TODO: Add abstract
+	\include{chapters/Declaration}
+	
+	
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\section*{\centering{Acknowledgements}}
+	\begin{center}
+		Thanks to my supervisor, Dr Matthew D'Souza, for steering me towards excellent resources and giving me extensive feedback throughout this project. \\
+	
+		\noindent Thanks you to Sjors Schoof, for the shared tips and insights into the exciting world of RISC-V softcores.
+		
+		\noindent Thank you to Thomas Fowler, for proofreading and feedback throughout this project.
+		
+		\noindent Thank you to my brother, Henry James Steel, for proofreading early works and supporting me throughout this year.
+		
+		\noindent Thank you to my mother and father, Caroline Elizabeth Round and Gregory Walter Steel, for your love and support throughout my time at university.
+	\end{center} 
+	\leavevmode\thispagestyle{empty}\newpage
+	\leavevmode\thispagestyle{empty}\newpage
+	\section*{\centering{Abstract}}
+	In the face of breakdown in Moore's Law and Dennardian Scaling, Electrical and Computer Engineers are forced to reconsider the standard approach to circuit design. As a clear relationship of a doubling of performance every 1 and a half years gains the added caveat of doubling the power budget at the same time, the problem of dark silicon emerges, as sections of a chip go unpowered due to an inability to cool excess heat from the chip results would result in a shortened lifespan if all sections were powered.
+	
+	To combat the problem, an attempt was made to employ the dark silicon methodologies of heterogeneous core design, dynamic frequency scaling and memory driven computing, to produce a CPU with superior resource allocation tendencies in task scheduling.
+	
+	Due to the global health pandemic and several other mitigating factors, limited progress was made on this project, though a firm knowledge base and list of recommendations was compiled for future researchers to finish the project if so desired.
+
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\thispagestyle{empty}
+	\tableofcontents
+	\thispagestyle{empty}
+	\listoffigures
+	\thispagestyle{empty}
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\cleardoublepage\pagenumbering{arabic}
+	
+	%Do I actually need an introduction or is that just the thesis definition and scope
+	
+	\chapter{Thesis Definition and Scope}
+	\input{chapters/Thesis Definition and Scope}
+
+	\leavevmode\thispagestyle{empty}\newpage
+	\leavevmode\thispagestyle{empty}\newpage
+
+	\chapter{Background Theory}
+	\input{chapters/Background Theory}
+	
+	
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\leavevmode\thispagestyle{empty}\newpage
+	
+	\chapter{Method}
+	\input{chapters/Method}
+	
+	\chapter{Results}
+	\input{chapters/Results}
+	
+	\chapter{Conclusion}
+	\input{chapters/Conclusion}
+	
+	\appendix
+	\chapter{Appendix}
+%	\input{chapters/appendix}
+
+%	\nocite{*}
+	\printbibliography
+\end{document}
